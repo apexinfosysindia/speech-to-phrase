@@ -65,7 +65,7 @@ data:
       - "..."
 ```
 
-Sentence templates are written using the [hassil][hassil-syntax] syntax with some restrictions:
+Sentence templates are written using the [apexil][apexil-syntax] syntax with some restrictions:
 
 * Expansion rules may not reference other expansion rules (`<rule_name>`)
 * List names cannot be inside an optional (`[{list_name}]`) or alternative (`(a|{list_name})`)
@@ -224,5 +224,5 @@ fixtures:
 [english-model]: https://huggingface.co/datasets/rhasspy/rhasspy-speech/resolve/main/models/en_US-rhasspy.tar.gz?download=true
 [ipa2kaldi]: https://github.com/rhasspy/ipa2kaldi
 [coqui-models]: https://github.com/coqui-ai/STT-models
-[hassil]: https://pypi.org/project/hassil/
-[hassil-syntax]: https://pypi.org/project/hassil/
+[apexil]: https://github.com/apexinfosysindia/apexil
+[apexil-syntax]: https://github.com/apexinfosysindia/apexil

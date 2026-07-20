@@ -12,7 +12,7 @@ _CI_TESTS = [
     _TEST_DIR / f"test_{name}.py"
     for name in (
         "apex_api",
-        "hassil_fst",
+        "apexil_fst",
         "models",
         "validate_yaml",
         "g2p",

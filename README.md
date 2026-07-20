@@ -81,7 +81,7 @@ Speech models and tools are downloaded automatically from [HuggingFace](https://
 
 ## How it works
 
-Speech-to-phrase combines [pre-defined sentence templates](speech_to_phrase/sentences) with the names of things exposed in your home to produce a hassil template file. This file compactly represents all of the possible sentences that can be recognized, which may be hundreds, thousands, or even millions.
+Speech-to-phrase combines [pre-defined sentence templates](speech_to_phrase/sentences) with the names of things exposed in your home to produce an apexil template file. This file compactly represents all of the possible sentences that can be recognized, which may be hundreds, thousands, or even millions.
 
 Using techniques developed in the [Rhasspy project](https://rhasspy.readthedocs.io/en/latest/whitepaper/), speech-to-phrase converts the compact sentence templates into a [finite state transducer]((https://www.openfst.org)) (FST) which is then used to train a language model for [Kaldi](https://kaldi-asr.org/). The [opengrm](https://www.opengrm.org) tooling is crucial for efficiency during this step, as it avoids unpacking the sentence templates into every possible combination.
 

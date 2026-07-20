@@ -6,7 +6,7 @@ from typing import Any, Optional
 
 import pytest
 from apexil import Intents, recognize_all
-from home_assistant_intents import get_intents
+from apexos_intents import get_intents
 
 from speech_to_phrase import Things
 from speech_to_phrase.lang_sentences import LanguageData, load_shared_lists

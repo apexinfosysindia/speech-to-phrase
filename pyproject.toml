@@ -47,7 +47,7 @@ dev = [
     "pytest-asyncio==0.25.2",
     "tox==4.23.2",
     "build==1.2.2",
-    "home-assistant-intents==2026.3.24",  # dev/test-only third-party dist name (deliberate keep)
+    "apexos-intents==2026.6.24",  # lockstep pair with apexil
     "regex==2024.11.6",
     "voluptuous==0.15.2",
     "networkx==3.4.2",
