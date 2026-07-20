@@ -5,7 +5,7 @@ Contributions to Speech-to-Phrase are welcome! There are two parts that are requ
 1. A [speech-to-text model](#speech-to-text-models)
 2. A set of [sentence templates](#snetence-templates)
 
-Not all speech-to-text models and sentence templates are usable in Speech-to-Phrase. All models must be able to run quickly on a Raspberry Pi 4 (less than 1 second of processing time), and all sentences must be [recognized by Home Assistant](https://github.com/home-assistant/intents/).
+Not all speech-to-text models and sentence templates are usable in Speech-to-Phrase. All models must be able to run quickly on a Raspberry Pi 4 (less than 1 second of processing time), and all sentences must be recognized by the intents library.
 
 
 ## Speech-to-Text Models
@@ -31,13 +31,13 @@ These models were [downloaded from GitHub][coqui-models] and repackaged for Spee
 
 ## Sentence Templates
 
-Speech-to-Phrase trains itself based on Home Assistant's [exposed][]:
+Speech-to-Phrase trains itself based on ApexOS [exposed][]:
 
 * [entities][]
 * [areas][area]
 * [floors][floor]
 
-Importantly, all of the sentences that Speech-to-Phrase can match must be recognizable by [Home Assistant][intents]. If a sentence is not supported, it must be added by the appropriate [language leader][language-leaders].
+Importantly, all of the sentences that Speech-to-Phrase can match must be recognizable by the intents library. If a sentence is not supported, it must first be added to the intents library for that language.
 
 Sentence templates for each language are stored in `speech_to_phrase/sentences` and have the following YAML format:
 
@@ -72,7 +72,7 @@ Sentence templates are written using the [hassil][hassil-syntax] syntax with som
 
 These restrictions are intended to reduce the possible complexity of Speech-to-Phrase sentence templates. The performance of the [speech-to-text models](#speech-to-text-models) degrades as the number of possible sentences increases, so it's best to keep it small.
 
-There are 3 builtin lists that come from Home Assistant:
+There are 3 builtin lists that come from the core API:
 
 * `{name}` - entity names/aliases + domains
 * `{area}` - area names/aliases
@@ -175,7 +175,7 @@ transformed_lists:
 
 ### Tests
 
-Sentence templates are tested to ensure that every possible sentence can be recognized by Home Assistant. This can be slow if there are many possible sentences, which is another reason to keep things as small as possible.
+Sentence templates are tested to ensure that every possible sentence can be recognized by the intents library. This can be slow if there are many possible sentences, which is another reason to keep things as small as possible.
 
 To test transcriptions, a fixtures file must be added at `tests/fixtures/<language>.yaml` with:
 
@@ -212,12 +212,10 @@ fixtures:
 
 
 <!-- Links -->
-[entities]: https://www.home-assistant.io/docs/configuration/entities_domains/
-[area]: https://www.home-assistant.io/docs/organizing/#area
-[floor]: https://www.home-assistant.io/docs/organizing/#floor
-[exposed]: https://www.home-assistant.io/voice_control/voice_remote_expose_devices/
-[intents]: https://github.com/home-assistant/intents
-[language-leaders]: https://developers.home-assistant.io/docs/voice/language-leaders/
+[entities]: https://www.apexinfosys.in/docs/configuration/entities_domains/
+[area]: https://www.apexinfosys.in/docs/organizing/#area
+[floor]: https://www.apexinfosys.in/docs/organizing/#floor
+[exposed]: https://www.apexinfosys.in/voice_control/voice_remote_expose_devices/
 [kaldi]: https://kaldi-asr.org/
 [coqui-stt]: https://stt.readthedocs.io/en/latest/
 [nnet3]: https://kaldi-asr.org/doc/dnn3.html
@@ -226,5 +224,5 @@ fixtures:
 [english-model]: https://huggingface.co/datasets/rhasspy/rhasspy-speech/resolve/main/models/en_US-rhasspy.tar.gz?download=true
 [ipa2kaldi]: https://github.com/rhasspy/ipa2kaldi
 [coqui-models]: https://github.com/coqui-ai/STT-models
-[hassil]: https://github.com/home-assistant/hassil
-[hassil-syntax]: https://github.com/home-assistant/hassil?tab=readme-ov-file#sentence-templates
+[hassil]: https://pypi.org/project/hassil/
+[hassil-syntax]: https://pypi.org/project/hassil/

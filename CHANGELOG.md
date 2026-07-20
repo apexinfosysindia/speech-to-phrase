@@ -2,7 +2,7 @@
 
 ## 1.4.1
 
-- More robust parsing of `ask_question` answers from Home Assistant
+- More robust parsing of `ask_question` answers from the core API
 - Remove intent probability normalization
 - Revert to Kneser-Ney smoothing instead of Witten-Bell
 - Re-add German timer sentences

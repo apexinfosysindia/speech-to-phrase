@@ -3,7 +3,7 @@
 import importlib
 
 from .const import Language, Settings, WordCasing
-from .hass_api import Things
+from .apex_api import Things
 from .models import MODELS, Model
 from .train import train
 from .transcribe import transcribe

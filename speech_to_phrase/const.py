@@ -63,8 +63,8 @@ class Settings:
         train_dir: Union[str, Path],
         tools_dir: Union[str, Path],
         custom_sentences_dirs: List[Union[str, Path]],
-        hass_token: str,
-        hass_websocket_uri: str,
+        apex_token: str,
+        apex_websocket_uri: str,
         retrain_on_connect: bool,
         sentences_dir: Optional[Union[str, Path]] = None,
         shared_lists_path: Optional[Path] = None,
@@ -76,8 +76,8 @@ class Settings:
         self.train_dir = Path(train_dir)
         self.tools = SpeechTools.from_tools_dir(tools_dir)
         self.custom_sentences_dirs = [Path(d) for d in custom_sentences_dirs]
-        self.hass_token = hass_token
-        self.hass_websocket_uri = hass_websocket_uri
+        self.apex_token = apex_token
+        self.apex_websocket_uri = apex_websocket_uri
         self.retrain_on_connect = retrain_on_connect
 
         if not sentences_dir:

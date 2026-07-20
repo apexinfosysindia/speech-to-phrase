@@ -1,4 +1,4 @@
-"""Home Assistant API."""
+"""Core websocket API client."""
 
 import hashlib
 import logging
@@ -22,7 +22,7 @@ MEDIA_PLAYER_NEXT_TRACK = 32
 
 @dataclass
 class Entity:
-    """Home Assistant entity."""
+    """Exposed entity."""
 
     names: List[str]
     domain: str
@@ -67,7 +67,7 @@ class Entity:
 
 @dataclass
 class Area:
-    """Home Assistant area."""
+    """Exposed area."""
 
     names: List[str]
     _hash: str = ""
@@ -87,7 +87,7 @@ class Area:
 
 @dataclass
 class Floor:
-    """Home Assistant floor."""
+    """Exposed floor."""
 
     names: List[str]
     _hash: str = ""
@@ -107,7 +107,7 @@ class Floor:
 
 @dataclass
 class Things:
-    """Exposed things in Home Assistant."""
+    """Exposed things from the core API."""
 
     entities: List[Entity] = field(default_factory=list)
     areas: List[Area] = field(default_factory=list)
@@ -227,16 +227,16 @@ def _coerce_list(str_or_list: Union[str, List[str]]) -> List[str]:
 
 
 @dataclass
-class HomeAssistantInfo:
-    """Information loaded from Home Assistant websocket API."""
+class ApexOSInfo:
+    """Information loaded from the core websocket API."""
 
     system_language: str
     things: Things
     pipeline_languages: Set[str] = field(default_factory=set)
 
 
-async def get_hass_info(token: str, uri: str) -> HomeAssistantInfo:
-    """Use HA websocket API to get exposed entities/areas/floors."""
+async def get_apex_info(token: str, uri: str) -> ApexOSInfo:
+    """Use the core websocket API to get exposed entities/areas/floors."""
     things = Things()
     pipeline_languages: Set[str] = set()
 
@@ -283,12 +283,20 @@ async def get_hass_info(token: str, uri: str) -> HomeAssistantInfo:
                 if stt_language:
                     pipeline_languages.add(stt_language)
 
-            # Get exposed entities
+            # Get exposed entities.
+            # ApexOS wire type first; fall back to the legacy wire type when
+            # talking to an upstream-branded core.
             await websocket.send_json(
-                {"id": next_id(), "type": "homeassistant/expose_entity/list"}
+                {"id": next_id(), "type": "apexos/expose_entity/list"}
             )
 
             msg = await websocket.receive_json()
+            if not msg["success"]:
+                await websocket.send_json(
+                    {"id": next_id(), "type": "homeassistant/expose_entity/list"}
+                )
+                msg = await websocket.receive_json()
+
             assert msg["success"], msg
 
             entity_ids = []
@@ -461,12 +469,12 @@ async def get_hass_info(token: str, uri: str) -> HomeAssistantInfo:
                 entity_config = msg["result"]["config"]
                 for answer_sentence in _find_ask_question_answers(entity_config):
                     if "{{" in answer_sentence:
-                        # Skip sentences with HA template variables
+                        # Skip sentences with template variables
                         continue
 
                     things.extra_sentences.append(answer_sentence)
 
-    return HomeAssistantInfo(
+    return ApexOSInfo(
         system_language=system_language,
         things=things,
         pipeline_languages=pipeline_languages,

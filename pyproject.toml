@@ -9,9 +9,9 @@ license     = {text = "Apache-2.0"}
 description = "Fast and personalized local speech-to-text"
 readme      = "README.md"
 authors     = [
-    {name = "The Home Assistant Authors", email = "hello@home-assistant.io"}
+    {name = "The Speech-to-Phrase Authors"}
 ]
-keywords    = ["home", "assistant", "speech", "recognition"]
+keywords    = ["apexos", "voice", "speech", "recognition"]
 classifiers = [
     "Development Status :: 3 - Alpha",
     "Intended Audience :: Developers",
@@ -26,7 +26,7 @@ classifiers = [
 ]
 requires-python = ">=3.8.0"
 dependencies = [
-    "hassil>=3,<4",
+    "hassil>=3,<4",  # third-party dist name (deliberate keep)
     "PyYAML>=6,<7",
     "unicode-rbnf>=2.3,<3",
     "regex==2024.11.6",
@@ -47,14 +47,14 @@ dev = [
     "pytest-asyncio==0.25.2",
     "tox==4.23.2",
     "build==1.2.2",
-    "home-assistant-intents==2026.3.24",
+    "home-assistant-intents==2026.3.24",  # dev/test-only third-party dist name (deliberate keep)
     "regex==2024.11.6",
     "voluptuous==0.15.2",
     "networkx==3.4.2",
 ]
 
 [project.urls]
-"Source Code" = "http://github.com/OHF-voice/speech-to-phrase"
+"Source Code" = "https://github.com/apexinfosysindia/speech-to-phrase"
 
 [tool.setuptools]
 platforms = ["any"]

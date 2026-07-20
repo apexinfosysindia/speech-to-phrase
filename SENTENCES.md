@@ -24,7 +24,7 @@ Available voice commands by category and language code.
 * `sw` - Swahili
 * `tr` - Turkish
 
-**NOTE:**  Entities must first be [exposed][] in Home Assistant.
+**NOTE:**  Entities must first be [exposed][] in ApexOS.
 
 <!----------------------------------------------------------------------------->
 
@@ -383,19 +383,19 @@ Requires a [script][] with the specific name or [alias][aliases]:
 <!----------------------------------------------------------------------------->
 
 <!-- Links -->
-[aliases]: https://www.home-assistant.io/voice_control/aliases/
-[area]: https://www.home-assistant.io/docs/organizing/#area
-[climate]: https://www.home-assistant.io/integrations/climate/
-[cover]: https://www.home-assistant.io/integrations/cover/
-[entities]: https://www.home-assistant.io/docs/configuration/entities_domains/
-[exposed]: https://www.home-assistant.io/voice_control/voice_remote_expose_devices/
-[fan]: https://www.home-assistant.io/integrations/fan/
-[input_boolean]: https://www.home-assistant.io/integrations/input_boolean/
-[light]: https://www.home-assistant.io/integrations/light/
-[lock]: https://www.home-assistant.io/integrations/lock/
-[media_player]: https://www.home-assistant.io/integrations/media_player/
-[scene]: https://www.home-assistant.io/integrations/scene/
-[script]: https://www.home-assistant.io/integrations/script/
-[sensor]: https://www.home-assistant.io/integrations/sensor/
-[switch]: https://www.home-assistant.io/integrations/switch/
-[weather]: https://www.home-assistant.io/integrations/weather/
+[aliases]: https://www.apexinfosys.in/voice_control/aliases/
+[area]: https://www.apexinfosys.in/docs/organizing/#area
+[climate]: https://www.apexinfosys.in/integrations/climate/
+[cover]: https://www.apexinfosys.in/integrations/cover/
+[entities]: https://www.apexinfosys.in/docs/configuration/entities_domains/
+[exposed]: https://www.apexinfosys.in/voice_control/voice_remote_expose_devices/
+[fan]: https://www.apexinfosys.in/integrations/fan/
+[input_boolean]: https://www.apexinfosys.in/integrations/input_boolean/
+[light]: https://www.apexinfosys.in/integrations/light/
+[lock]: https://www.apexinfosys.in/integrations/lock/
+[media_player]: https://www.apexinfosys.in/integrations/media_player/
+[scene]: https://www.apexinfosys.in/integrations/scene/
+[script]: https://www.apexinfosys.in/integrations/script/
+[sensor]: https://www.apexinfosys.in/integrations/sensor/
+[switch]: https://www.apexinfosys.in/integrations/switch/
+[weather]: https://www.apexinfosys.in/integrations/weather/

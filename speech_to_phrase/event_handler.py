@@ -16,7 +16,7 @@ from wyoming.server import AsyncEventHandler
 from . import __version__
 from .audio import multiply_volume, vad_audio_stream
 from .const import CHANNELS, RATE, WIDTH, CachedTranscriber, State
-from .hass_api import get_hass_info
+from .apex_api import get_apex_info
 from .models import DEFAULT_MODEL, MODELS, Model
 from .train import train
 from .transcribe import transcribe
@@ -250,10 +250,10 @@ class SpeechToPhraseEventHandler(AsyncEventHandler):
     async def _retrain_model(self, model: Model) -> None:
         """Get HA info and retrain model."""
         try:
-            hass_info = await get_hass_info(
-                token=self.settings.hass_token, uri=self.settings.hass_websocket_uri
+            apex_info = await get_apex_info(
+                token=self.settings.apex_token, uri=self.settings.apex_websocket_uri
             )
-            await train(model, self.settings, hass_info.things)
+            await train(model, self.settings, apex_info.things)
         except Exception:
             _LOGGER.exception("Unexpected error training %s", model.id)
             raise

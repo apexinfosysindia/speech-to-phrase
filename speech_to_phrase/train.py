@@ -12,7 +12,7 @@ from hassil import Intents, merge_dict
 
 from .const import Settings, TrainingError, WordCasing
 from .g2p import LexiconDatabase
-from .hass_api import Things
+from .apex_api import Things
 from .hassil_fst import Fst, G2PInfo, intents_to_fst
 from .lang_sentences import LanguageData, load_shared_lists
 from .models import MODELS, Model, ModelType, download_model
@@ -258,8 +258,8 @@ async def main() -> None:
         train_dir=Path(args.train_dir),
         tools_dir=Path(args.tools_dir),
         custom_sentences_dirs=[],
-        hass_token="",
-        hass_websocket_uri="",
+        apex_token="",
+        apex_websocket_uri="",
         retrain_on_connect=False,
     )
 

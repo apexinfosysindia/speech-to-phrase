@@ -1,15 +1,15 @@
-"""Tests for Home Assistant API."""
+"""Tests for the core websocket API client."""
 
 from typing import Any, Dict, List, Optional, Set, Tuple, Union
 from unittest.mock import AsyncMock, MagicMock, patch
 
 import pytest
 
-from speech_to_phrase.hass_api import Entity, Things, get_hass_info
+from speech_to_phrase.apex_api import Entity, Things, get_apex_info
 
 
 class MockWebsocket:
-    """Mock websocket responses from Home Assistant server."""
+    """Mock websocket responses from the core server."""
 
     def __init__(
         self,
@@ -50,7 +50,7 @@ class MockWebsocket:
         self.responses = self.responses[1:]
         self._next_msg = None
 
-        response_data["success"] = True
+        response_data.setdefault("success", True)
         return response_data
 
     async def send_json(self, msg):
@@ -100,7 +100,7 @@ def test_template_syntax_removed() -> None:
 
 @pytest.mark.asyncio
 async def test_system_and_pipeline_languages() -> None:
-    """Test retrieval of HA system language and pipeline STT languages."""
+    """Test retrieval of the core system language and pipeline STT languages."""
     mock_websocket = MockWebsocket(
         [
             (None, {"type": "auth_required"}),
@@ -115,7 +115,7 @@ async def test_system_and_pipeline_languages() -> None:
                 },
             ),
             (
-                "homeassistant/expose_entity/list",
+                "apexos/expose_entity/list",
                 {"result": {"exposed_entities": {}}},
             ),
             ("get_states", {"result": []}),
@@ -130,10 +130,10 @@ async def test_system_and_pipeline_languages() -> None:
     )
 
     with patch("aiohttp.ClientSession", return_value=_make_session(mock_websocket)):
-        ha_info = await get_hass_info("<token>", "<url>")
-        assert ha_info.system_language == "en"
-        assert ha_info.pipeline_languages == {"de", "nl"}
-        assert set(ha_info.things.extra_sentences) == {"trigger 1", "trigger 2"}
+        apex_info = await get_apex_info("<token>", "<url>")
+        assert apex_info.system_language == "en"
+        assert apex_info.pipeline_languages == {"de", "nl"}
+        assert set(apex_info.things.extra_sentences) == {"trigger 1", "trigger 2"}
 
 
 @pytest.mark.asyncio
@@ -149,7 +149,7 @@ async def test_unexposed_and_disabled_entities() -> None:
                 {"result": {"pipelines": []}},
             ),
             (
-                "homeassistant/expose_entity/list",
+                "apexos/expose_entity/list",
                 {
                     "result": {
                         "exposed_entities": {
@@ -192,8 +192,8 @@ async def test_unexposed_and_disabled_entities() -> None:
     )
 
     with patch("aiohttp.ClientSession", return_value=_make_session(mock_websocket)):
-        ha_info = await get_hass_info("<token>", "<url>")
-        assert not ha_info.things.entities
+        apex_info = await get_apex_info("<token>", "<url>")
+        assert not apex_info.things.entities
 
 
 @pytest.mark.asyncio
@@ -208,7 +208,7 @@ async def test_areas_and_floors() -> None:
                 "assist_pipeline/pipeline/list",
                 {"result": {"pipelines": []}},
             ),
-            ("homeassistant/expose_entity/list", {"result": {"exposed_entities": {}}}),
+            ("apexos/expose_entity/list", {"result": {"exposed_entities": {}}}),
             ("get_states", {"result": []}),
             (
                 "config/floor_registry/list",
@@ -243,13 +243,13 @@ async def test_areas_and_floors() -> None:
     )
 
     with patch("aiohttp.ClientSession", return_value=_make_session(mock_websocket)):
-        ha_info = await get_hass_info("<token>", "<url>")
-        assert len(ha_info.things.areas) == 1
-        area = ha_info.things.areas[0]
+        apex_info = await get_apex_info("<token>", "<url>")
+        assert len(apex_info.things.areas) == 1
+        area = apex_info.things.areas[0]
         assert area.names == ["Area 1", "Area One"]
 
-        assert len(ha_info.things.floors) == 1
-        floor = ha_info.things.floors[0]
+        assert len(apex_info.things.floors) == 1
+        floor = apex_info.things.floors[0]
         assert floor.names == ["Floor 1", "Floor One"]
 
 
@@ -266,7 +266,7 @@ async def test_entity_names() -> None:
                 {"result": {"pipelines": []}},
             ),
             (
-                "homeassistant/expose_entity/list",
+                "apexos/expose_entity/list",
                 {
                     "result": {
                         "exposed_entities": {
@@ -313,11 +313,11 @@ async def test_entity_names() -> None:
     )
 
     with patch("aiohttp.ClientSession", return_value=_make_session(mock_websocket)):
-        ha_info = await get_hass_info("<token>", "<url>")
-        assert len(ha_info.things.entities) == 4
+        apex_info = await get_apex_info("<token>", "<url>")
+        assert len(apex_info.things.entities) == 4
 
         names: Set[str] = set()
-        for entity in ha_info.things.entities:
+        for entity in apex_info.things.entities:
             assert entity.domain == "light"
             if entity.entity_id == "light.aliases":
                 assert len(entity.names) == 2
@@ -348,7 +348,7 @@ async def test_light_features() -> None:
                 {"result": {"pipelines": [{"stt_language": "de"}]}},
             ),
             (
-                "homeassistant/expose_entity/list",
+                "apexos/expose_entity/list",
                 {
                     "result": {
                         "exposed_entities": {
@@ -398,16 +398,16 @@ async def test_light_features() -> None:
     )
 
     with patch("aiohttp.ClientSession", return_value=_make_session(mock_websocket)):
-        ha_info = await get_hass_info("<token>", "<url>")
-        assert len(ha_info.things.entities) == 2
+        apex_info = await get_apex_info("<token>", "<url>")
+        assert len(apex_info.things.entities) == 2
 
-        rgb_light = next(e for e in ha_info.things.entities if "RGB Light" in e.names)
+        rgb_light = next(e for e in apex_info.things.entities if "RGB Light" in e.names)
         assert rgb_light.domain == "light"
         assert rgb_light.light_supports_color
         assert rgb_light.light_supports_brightness
 
         brightness_only_light = next(
-            e for e in ha_info.things.entities if "Brightness Only Light" in e.names
+            e for e in apex_info.things.entities if "Brightness Only Light" in e.names
         )
         assert brightness_only_light.domain == "light"
         assert brightness_only_light.light_supports_brightness
@@ -427,7 +427,7 @@ async def test_fan_features() -> None:
                 {"result": {"pipelines": [{"stt_language": "de"}]}},
             ),
             (
-                "homeassistant/expose_entity/list",
+                "apexos/expose_entity/list",
                 {
                     "result": {
                         "exposed_entities": {
@@ -477,17 +477,17 @@ async def test_fan_features() -> None:
     )
 
     with patch("aiohttp.ClientSession", return_value=_make_session(mock_websocket)):
-        ha_info = await get_hass_info("<token>", "<url>")
-        assert len(ha_info.things.entities) == 2
+        apex_info = await get_apex_info("<token>", "<url>")
+        assert len(apex_info.things.entities) == 2
 
         speed_fan = next(
-            e for e in ha_info.things.entities if "Fan With Speed" in e.names
+            e for e in apex_info.things.entities if "Fan With Speed" in e.names
         )
         assert speed_fan.domain == "fan"
         assert speed_fan.fan_supports_speed
 
         no_speed_fan = next(
-            e for e in ha_info.things.entities if "Fan Without Speed" in e.names
+            e for e in apex_info.things.entities if "Fan Without Speed" in e.names
         )
         assert no_speed_fan.domain == "fan"
         assert not no_speed_fan.fan_supports_speed
@@ -506,7 +506,7 @@ async def test_cover_features() -> None:
                 {"result": {"pipelines": [{"stt_language": "de"}]}},
             ),
             (
-                "homeassistant/expose_entity/list",
+                "apexos/expose_entity/list",
                 {
                     "result": {
                         "exposed_entities": {
@@ -556,17 +556,17 @@ async def test_cover_features() -> None:
     )
 
     with patch("aiohttp.ClientSession", return_value=_make_session(mock_websocket)):
-        ha_info = await get_hass_info("<token>", "<url>")
-        assert len(ha_info.things.entities) == 2
+        apex_info = await get_apex_info("<token>", "<url>")
+        assert len(apex_info.things.entities) == 2
 
         position_cover = next(
-            e for e in ha_info.things.entities if "Cover With Position" in e.names
+            e for e in apex_info.things.entities if "Cover With Position" in e.names
         )
         assert position_cover.domain == "cover"
         assert position_cover.cover_supports_position
 
         no_position_cover = next(
-            e for e in ha_info.things.entities if "Cover Without Position" in e.names
+            e for e in apex_info.things.entities if "Cover Without Position" in e.names
         )
         assert no_position_cover.domain == "cover"
         assert not no_position_cover.cover_supports_position
@@ -585,7 +585,7 @@ async def test_media_player_features() -> None:
                 {"result": {"pipelines": [{"stt_language": "de"}]}},
             ),
             (
-                "homeassistant/expose_entity/list",
+                "apexos/expose_entity/list",
                 {
                     "result": {
                         "exposed_entities": {
@@ -637,11 +637,11 @@ async def test_media_player_features() -> None:
     )
 
     with patch("aiohttp.ClientSession", return_value=_make_session(mock_websocket)):
-        ha_info = await get_hass_info("<token>", "<url>")
-        assert len(ha_info.things.entities) == 2
+        apex_info = await get_apex_info("<token>", "<url>")
+        assert len(apex_info.things.entities) == 2
 
         extra_media_player = next(
-            e for e in ha_info.things.entities if "Media Player With Extra" in e.names
+            e for e in apex_info.things.entities if "Media Player With Extra" in e.names
         )
         assert extra_media_player.domain == "media_player"
         assert extra_media_player.media_player_supports_pause
@@ -650,7 +650,7 @@ async def test_media_player_features() -> None:
 
         no_extra_media_player = next(
             e
-            for e in ha_info.things.entities
+            for e in apex_info.things.entities
             if "Media Player Without Extra" in e.names
         )
         assert no_extra_media_player.domain == "media_player"
@@ -672,7 +672,7 @@ async def test_automation_script_answers() -> None:
                 {"result": {"pipelines": [{"stt_language": "en"}]}},
             ),
             (
-                "homeassistant/expose_entity/list",
+                "apexos/expose_entity/list",
                 {"result": {"exposed_entities": {}}},
             ),
             (
@@ -743,5 +743,35 @@ async def test_automation_script_answers() -> None:
     )
 
     with patch("aiohttp.ClientSession", return_value=_make_session(mock_websocket)):
-        ha_info = await get_hass_info("<token>", "<url>")
-        assert set(ha_info.things.extra_sentences) == {"answer 1", "answer 2"}
+        apex_info = await get_apex_info("<token>", "<url>")
+        assert set(apex_info.things.extra_sentences) == {"answer 1", "answer 2"}
+
+
+@pytest.mark.asyncio
+async def test_expose_entity_list_legacy_fallback() -> None:
+    """Test fallback to the legacy exposed-entities wire type."""
+    mock_websocket = MockWebsocket(
+        [
+            (None, {"type": "auth_required"}),
+            ("auth", {"type": "auth_ok"}),
+            ("get_config", {"result": {"language": "en"}}),
+            ("assist_pipeline/pipeline/list", {"result": {"pipelines": []}}),
+            # Core does not know the new wire type
+            ("apexos/expose_entity/list", {"success": False}),
+            # Legacy wire type succeeds
+            (
+                "homeassistant/expose_entity/list",
+                {"result": {"exposed_entities": {}}},
+            ),
+            ("get_states", {"result": []}),
+            ("config/floor_registry/list", {"result": []}),
+            ("config/area_registry/list", {"result": []}),
+            ("config/entity_registry/get_entries", {"result": {}}),
+            ("conversation/sentences/list", {"result": {"trigger_sentences": []}}),
+        ]
+    )
+
+    with patch("aiohttp.ClientSession", return_value=_make_session(mock_websocket)):
+        apex_info = await get_apex_info("<token>", "<url>")
+        assert apex_info.system_language == "en"
+        assert not apex_info.things.entities

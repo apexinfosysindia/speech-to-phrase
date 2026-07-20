@@ -12,8 +12,8 @@ SETTINGS = Settings(
     models_dir=LOCAL_DIR / "models",
     train_dir=TESTS_DIR / "train",
     tools_dir=LOCAL_DIR,
-    hass_token="",
-    hass_websocket_uri="",
+    apex_token="",
+    apex_websocket_uri="",
     retrain_on_connect=False,
     custom_sentences_dirs=[TESTS_DIR / "custom_sentences"],
 )

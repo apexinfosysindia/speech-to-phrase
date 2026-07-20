@@ -62,8 +62,8 @@ async def main() -> None:
         train_dir=Path(args.train_dir),
         tools_dir=Path(args.tools_dir),
         custom_sentences_dirs=[],
-        hass_token="",
-        hass_websocket_uri="",
+        apex_token="",
+        apex_websocket_uri="",
         retrain_on_connect=False,
     )
 

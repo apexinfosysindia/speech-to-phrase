@@ -3,12 +3,10 @@
   Speech-to-Phrase
 </h1>
 
-A fast and local speech-to-text system that is personalized with your [Home Assistant](https://www.home-assistant.io/) device and area names.
+A fast and local speech-to-text system that is personalized with the device and area names from your [ApexOS](https://www.apexinfosys.in/) home.
 
 Speech-to-phrase is not a general purpose speech recognition system. Instead of answering the question "what did the user say?", it answers "which of the phrases I know did the user say?".
-This is accomplished by combining [pre-defined sentence templates](speech_to_phrase/sentences) with the names of your Home Assistant [entities, areas, and floors](https://www.home-assistant.io/getting-started/concepts-terminology/) that have been [exposed to Assist](https://www.home-assistant.io/voice_control/voice_remote_expose_devices/).
-
-[![Show add-on](https://my.home-assistant.io/badges/supervisor_addon.svg)](https://my.home-assistant.io/redirect/supervisor_addon/?addon=core_speech-to-phrase)
+This is accomplished by combining [pre-defined sentence templates](speech_to_phrase/sentences) with the names of your [entities, areas, and floors](https://www.apexinfosys.in/getting-started/concepts-terminology/) that have been [exposed to Assist](https://www.apexinfosys.in/voice_control/voice_remote_expose_devices/).
 
 ## Supported languages
 
@@ -55,23 +53,26 @@ lists:
       - "bananas"
 ```
 
-This would allow you to say "add apples to my shopping list" if you have a [todo][] entity in Home Assistant exposed with the name "shopping list".
+This would allow you to say "add apples to my shopping list" if you have a [todo][] entity exposed with the name "shopping list".
 
 You can also create lists with the same names as your [sentence trigger wildcards][sentence_wildcards] to make them usable in speech-to-phrase.
 
-## Docker container
+## Running
 
-A Docker container is available that can be connected to Home Assistant via the [wyoming integration][wyoming]:
+Speech-to-phrase runs as a Wyoming protocol server. It connects to the core websocket API of your ApexOS system to fetch the names of exposed things, and can be used from the [wyoming integration][wyoming]:
 
 ``` sh
-docker run -it -p 10300:10300 \
-  -v /path/to/download/models:/models \
-  -v /path/to/train:/train \
-  rhasspy/wyoming-speech-to-phrase \
-  --hass-websocket-uri 'ws://homeassistant.local:8123/api/websocket' \
-  --hass-token '<LONG_LIVED_ACCESS_TOKEN>' \
+python3 -m speech_to_phrase \
+  --uri 'tcp://0.0.0.0:10300' \
+  --models-dir /path/to/download/models \
+  --train-dir /path/to/train \
+  --tools-dir /path/to/tools \
+  --apex-websocket-uri 'ws://apexos.local:1702/api/websocket' \
+  --apex-token '<LONG_LIVED_ACCESS_TOKEN>' \
   --retrain-on-start
 ```
+
+The `--hass-websocket-uri` and `--hass-token` flags are accepted as deprecated aliases of `--apex-websocket-uri` and `--apex-token` for compatibility with existing wrappers and run scripts.
 
 ## Models and tools
 
@@ -80,7 +81,7 @@ Speech models and tools are downloaded automatically from [HuggingFace](https://
 
 ## How it works
 
-Speech-to-phrase combines [pre-defined sentence templates](speech_to_phrase/sentences) with the names of things from your Home Assistant to produce a [hassil](https://github.com/home-assistant/hassil) template file. This file compactly represents all of the possible sentences that can be recognized, which may be hundreds, thousands, or even millions.
+Speech-to-phrase combines [pre-defined sentence templates](speech_to_phrase/sentences) with the names of things exposed in your home to produce a hassil template file. This file compactly represents all of the possible sentences that can be recognized, which may be hundreds, thousands, or even millions.
 
 Using techniques developed in the [Rhasspy project](https://rhasspy.readthedocs.io/en/latest/whitepaper/), speech-to-phrase converts the compact sentence templates into a [finite state transducer]((https://www.openfst.org)) (FST) which is then used to train a language model for [Kaldi](https://kaldi-asr.org/). The [opengrm](https://www.opengrm.org) tooling is crucial for efficiency during this step, as it avoids unpacking the sentence templates into every possible combination.
 
@@ -93,10 +94,10 @@ During training, a lot of "magic" happens to ensure that your entity, area, and 
 * Digits are replaced with their [spoken word forms](https://github.com/rhasspy/unicode-rbnf) ("123" becomes "one hundred twenty three")
 * Unknown words have their pronunciations guessed
 
-To make phrase recognition more robust, a "fuzzy" layer is added on top of Kaldi's transcription output. This layer can correct small errors, such as duplicate or missing words, and also ensures that output names are exactly what you have in Home Assistant.
+To make phrase recognition more robust, a "fuzzy" layer is added on top of Kaldi's transcription output. This layer can correct small errors, such as duplicate or missing words, and also ensures that output names are exactly what you have exposed.
 
 
-[custom_sentences]: https://www.home-assistant.io/voice_control/custom_sentences_yaml/#setting-up-sentences-in-the-config-directory
-[todo]: https://www.home-assistant.io/integrations/todo
-[sentence_wildcards]: https://www.home-assistant.io/docs/automation/trigger/#sentence-wildcards
-[wyoming]: https://www.home-assistant.io/integrations/wyoming
+[custom_sentences]: https://www.apexinfosys.in/voice_control/custom_sentences_yaml/#setting-up-sentences-in-the-config-directory
+[todo]: https://www.apexinfosys.in/integrations/todo
+[sentence_wildcards]: https://www.apexinfosys.in/docs/automation/trigger/#sentence-wildcards
+[wyoming]: https://www.apexinfosys.in/integrations/wyoming

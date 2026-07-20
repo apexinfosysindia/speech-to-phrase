@@ -12,7 +12,7 @@ from wyoming.server import AsyncServer
 from . import __version__
 from .const import Settings, State
 from .event_handler import SpeechToPhraseEventHandler
-from .hass_api import HomeAssistantInfo, get_hass_info
+from .apex_api import ApexOSInfo, get_apex_info
 from .models import DEFAULT_MODEL, Model, get_models_for_languages
 from .train import train
 
@@ -37,14 +37,22 @@ async def main() -> None:
         action="append",
         help="Directory with custom sentence directories for each language",
     )
-    # Home Assistant
+    # ApexOS core API
+    # NOTE: --hass-token/--hass-websocket-uri are kept as deprecated legacy
+    # aliases for compatibility with existing wrappers and run scripts.
     parser.add_argument(
-        "--hass-token", required=True, help="Long-lived access token for Home Assistant"
+        "--apex-token",
+        "--hass-token",
+        dest="apex_token",
+        required=True,
+        help="Long-lived access token for the core API",
     )
     parser.add_argument(
+        "--apex-websocket-uri",
         "--hass-websocket-uri",
-        default="ws://homeassistant.local:8123/api/websocket",
-        help="URI of Home Assistant websocket API",
+        dest="apex_websocket_uri",
+        default="ws://apexos.local:1702/api/websocket",
+        help="URI of the core websocket API",
     )
     # Training
     parser.add_argument(
@@ -85,8 +93,8 @@ async def main() -> None:
             train_dir=Path(args.train_dir),
             tools_dir=Path(args.tools_dir),
             custom_sentences_dirs=args.custom_sentences_dir or [],
-            hass_token=args.hass_token,
-            hass_websocket_uri=args.hass_websocket_uri,
+            apex_token=args.apex_token,
+            apex_websocket_uri=args.apex_websocket_uri,
             retrain_on_connect=args.retrain_on_connect,
             volume_multiplier=args.volume_multiplier,
         )
@@ -123,20 +131,20 @@ async def _retrain_loop(state: State, wait_seconds: float) -> None:
 
 
 async def _retrain_once(state: State, force_retrain: bool = False) -> None:
-    """Retrain all models that match HA's language or a pipeline language."""
+    """Retrain all models that match the core system language or a pipeline language."""
     settings = state.settings
     _LOGGER.debug(
-        "Getting exposed things from Home Assistant (%s)", settings.hass_websocket_uri
+        "Getting exposed things from the core API (%s)", settings.apex_websocket_uri
     )
-    hass_info = await get_hass_info(
-        token=settings.hass_token, uri=settings.hass_websocket_uri
+    apex_info = await get_apex_info(
+        token=settings.apex_token, uri=settings.apex_websocket_uri
     )
-    _LOGGER.debug("HA system language: %s", hass_info.system_language)
-    if hass_info.pipeline_languages:
-        _LOGGER.debug("HA pipeline language(s): %s", hass_info.pipeline_languages)
+    _LOGGER.debug("Core system language: %s", apex_info.system_language)
+    if apex_info.pipeline_languages:
+        _LOGGER.debug("Core pipeline language(s): %s", apex_info.pipeline_languages)
 
-    settings.default_language = hass_info.system_language
-    things = hass_info.things
+    settings.default_language = apex_info.system_language
+    things = apex_info.things
     _LOGGER.debug(
         "Got %s entities, %s area(s), %s floor(s), %s extra sentence(s)",
         len(things.entities),
@@ -145,8 +153,8 @@ async def _retrain_once(state: State, force_retrain: bool = False) -> None:
         len(things.extra_sentences),
     )
 
-    languages_to_train = list(hass_info.pipeline_languages) + [
-        hass_info.system_language
+    languages_to_train = list(apex_info.pipeline_languages) + [
+        apex_info.system_language
     ]
     models_to_train = get_models_for_languages(languages_to_train)
     if not models_to_train:
@@ -160,7 +168,7 @@ async def _retrain_once(state: State, force_retrain: bool = False) -> None:
                 continue
 
             train_task = asyncio.create_task(
-                _train_model(model, settings, hass_info, force_retrain=force_retrain)
+                _train_model(model, settings, apex_info, force_retrain=force_retrain)
             )
             state.model_train_tasks[model.id] = train_task
             train_task.add_done_callback(
@@ -174,11 +182,11 @@ async def _retrain_once(state: State, force_retrain: bool = False) -> None:
 async def _train_model(
     model: Model,
     settings: Settings,
-    hass_info: HomeAssistantInfo,
+    apex_info: ApexOSInfo,
     force_retrain: bool = False,
 ) -> None:
     try:
-        await train(model, settings, hass_info.things, force_retrain=force_retrain)
+        await train(model, settings, apex_info.things, force_retrain=force_retrain)
     except Exception:
         _LOGGER.exception("Unexpected error while training %s", model.id)
         raise

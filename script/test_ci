@@ -11,7 +11,7 @@ _TEST_DIR = _PROGRAM_DIR / "tests"
 _CI_TESTS = [
     _TEST_DIR / f"test_{name}.py"
     for name in (
-        "hass_api",
+        "apex_api",
         "hassil_fst",
         "models",
         "validate_yaml",
