@@ -12,7 +12,7 @@ from enum import Enum, auto
 from functools import reduce
 from typing import Dict, List, Optional, Set, TextIO, Tuple, Union
 
-from hassil import (
+from apexil import (
     Alternative,
     Expression,
     Group,

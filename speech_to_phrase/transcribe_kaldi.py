@@ -10,7 +10,7 @@ from pathlib import Path
 from typing import List, Optional, Tuple
 
 from .const import EPS, Settings
-from .hassil_fst import Fst, decode_meta
+from .apexil_fst import Fst, decode_meta
 from .models import Model
 from .speech_tools import SpeechTools
 

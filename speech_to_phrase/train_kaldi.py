@@ -11,7 +11,7 @@ from typing import Set
 
 from .const import EPS, SIL, SPN, UNK, Settings
 from .g2p import LexiconDatabase
-from .hassil_fst import Fst
+from .apexil_fst import Fst
 from .models import Model
 from .speech_tools import SpeechTools
 

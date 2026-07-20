@@ -12,7 +12,7 @@ from pathlib import Path
 from typing import Dict, List, Set, Union
 
 from .const import BLANK, EPS, SPACE, Settings
-from .hassil_fst import Fst
+from .apexil_fst import Fst
 from .models import Model
 from .speech_tools import SpeechTools
 

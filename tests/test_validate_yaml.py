@@ -4,7 +4,7 @@ from typing import Any, Dict, Optional
 
 import pytest
 import voluptuous as vol
-from hassil import (
+from apexil import (
     Alternative,
     Expression,
     Group,

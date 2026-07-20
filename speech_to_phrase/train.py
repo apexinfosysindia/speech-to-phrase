@@ -8,12 +8,12 @@ import logging
 from dataclasses import asdict, dataclass
 from pathlib import Path
 
-from hassil import Intents, merge_dict
+from apexil import Intents, merge_dict
 
 from .const import Settings, TrainingError, WordCasing
 from .g2p import LexiconDatabase
 from .apex_api import Things
-from .hassil_fst import Fst, G2PInfo, intents_to_fst
+from .apexil_fst import Fst, G2PInfo, intents_to_fst
 from .lang_sentences import LanguageData, load_shared_lists
 from .models import MODELS, Model, ModelType, download_model
 from .train_coqui_stt import train_coqui_stt

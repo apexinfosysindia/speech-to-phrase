@@ -5,7 +5,7 @@ import re
 from dataclasses import dataclass, fields
 from typing import Any, Optional
 
-from hassil import SlotList, TextChunk, TextSlotList, TextSlotValue
+from apexil import SlotList, TextChunk, TextSlotList, TextSlotValue
 
 
 @dataclass
@@ -101,7 +101,7 @@ class LanguageData:
     transformed_lists: dict[str, TransformedList]
 
     def to_intents_dict(self) -> dict[str, Any]:
-        """Convert to hassil format."""
+        """Convert to apexil format."""
         return {
             "language": self.language,
             "lists": {
@@ -230,7 +230,7 @@ class LanguageData:
 
 
 def load_shared_lists(lists_dict: dict[str, dict[str, Any]]) -> dict[str, Any]:
-    """Convert shared lists to hassil format."""
+    """Convert shared lists to apexil format."""
     slot_lists: dict[str, Any] = {}
 
     for list_name, list_info in lists_dict.items():

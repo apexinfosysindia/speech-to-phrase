@@ -18,7 +18,7 @@ from pathlib import Path
 from typing import Dict, List, Optional, Union
 
 from .const import BLANK, EPS, SPACE, Settings
-from .hassil_fst import decode_meta
+from .apexil_fst import decode_meta
 from .models import Model
 from .speech_tools import SpeechTools
 

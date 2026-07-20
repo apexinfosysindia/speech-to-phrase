@@ -5,11 +5,11 @@ import tempfile
 from pathlib import Path
 
 import pytest
-from hassil import Intents
+from apexil import Intents
 
 from speech_to_phrase.const import WordCasing
 from speech_to_phrase.g2p import LexiconDatabase
-from speech_to_phrase.hassil_fst import SPACE, G2PInfo, intents_to_fst
+from speech_to_phrase.apexil_fst import SPACE, G2PInfo, intents_to_fst
 
 from . import SETTINGS
 

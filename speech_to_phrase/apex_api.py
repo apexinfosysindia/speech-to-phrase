@@ -137,7 +137,7 @@ class Things:
         return self._hash
 
     def to_lists_dict(self) -> Dict[str, Any]:
-        """Get lists dictionary for hassil intents."""
+        """Get lists dictionary for apexil intents."""
         lists_dict: Dict[str, Any] = {}
         lists_dict["name"] = {
             "values": [

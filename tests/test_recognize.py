@@ -5,7 +5,7 @@ from dataclasses import dataclass
 from typing import Any, Optional
 
 import pytest
-from hassil import Intents, recognize_all
+from apexil import Intents, recognize_all
 from home_assistant_intents import get_intents
 
 from speech_to_phrase import Things

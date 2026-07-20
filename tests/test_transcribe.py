@@ -9,7 +9,7 @@ from pathlib import Path
 import pytest
 import pytest_asyncio
 import regex as re
-from hassil import Intents, recognize_best
+from apexil import Intents, recognize_best
 from home_assistant_intents import get_intents
 from pysilero_vad import SileroVoiceActivityDetector
 
