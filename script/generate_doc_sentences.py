@@ -7,8 +7,8 @@ from typing import Dict, List, Optional, Set, Tuple, Union
 
 import yaml
 
-ORGANIZING_URL_BASE = "https://www.home-assistant.io/docs/organizing"
-INTEGRATION_URL_BASE = "https://www.home-assistant.io/integrations"
+ORGANIZING_URL_BASE = "https://www.apexinfosys.in/docs/organizing"
+INTEGRATION_URL_BASE = "https://www.apexinfosys.in/integrations"
 
 _DIR = Path(__file__).parent
 _PROGRAM_DIR = _DIR.parent

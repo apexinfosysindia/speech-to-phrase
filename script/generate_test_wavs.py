@@ -1,4 +1,4 @@
-"""Generate test WAV files using Home Assistant."""
+"""Generate test WAV files using a core TTS engine."""
 
 import argparse
 import json
@@ -41,9 +41,9 @@ TTS_LANG = {
 
 def main() -> int:
     parser = argparse.ArgumentParser()
-    parser.add_argument("--hass-url", default="http://localhost:8123")
-    parser.add_argument("--hass-token", required=True)
-    parser.add_argument("--engine", default="tts.home_assistant_cloud")
+    parser.add_argument("--apex-url", "--hass-url", dest="apex_url", default="http://localhost:1702")
+    parser.add_argument("--apex-token", "--hass-token", dest="apex_token", required=True)
+    parser.add_argument("--engine", default="tts.apex_cloud")
     parser.add_argument(
         "--output-dir", default=_TESTS_DIR / "wav", help="Path to output directory"
     )
@@ -146,8 +146,8 @@ def main() -> int:
                     continue
 
                 generate_wav(
-                    args.hass_url,
-                    args.hass_token,
+                    args.apex_url,
+                    args.apex_token,
                     args.engine,
                     tts_language,
                     sentence,
@@ -177,21 +177,21 @@ def coerce_list(str_or_list: Union[str, list[str]]) -> list[str]:
 
 
 def generate_wav(
-    hass_url: str,
-    hass_token: str,
+    apex_url: str,
+    apex_token: str,
     engine: str,
     language: str,
     text: str,
     wav_path: Path,
 ) -> None:
     request = Request(
-        f"{hass_url}/api/tts_get_url",
+        f"{apex_url}/api/tts_get_url",
         data=json.dumps(
             {"engine_id": engine, "message": text, "language": language}
         ).encode("utf-8"),
         headers={
             "Content-Type": "application/json",
-            "Authorization": f"Bearer {hass_token}",
+            "Authorization": f"Bearer {apex_token}",
         },
     )
     with urlopen(request) as response:

@@ -94,7 +94,7 @@ async def train(
 
 
 def _create_intents(model: Model, settings: Settings, things: Things) -> Intents:
-    """Create intents from sentences and things from Home Assistant."""
+    """Create intents from sentences and things exposed by the core API."""
     sentences_path = settings.sentences / f"{model.sentences_language}.yaml"
     with open(sentences_path, "r", encoding="utf-8") as sentences_file:
         lang_data = LanguageData.from_dict(yaml.load(sentences_file))

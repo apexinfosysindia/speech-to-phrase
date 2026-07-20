@@ -106,7 +106,7 @@ async def do_transcribe_recognize(
     assert actual_text, f"Got empty transcript for: {wav_path}"
 
     if actual_text != expected_text:
-        # Check that the result would be the same in Home Assistant
+        # Check that the result would be the same in the intents library
         error_info = (
             f"expected_text='{expected_text}', "
             f"actual_text='{actual_text}', "
@@ -142,15 +142,15 @@ async def do_transcribe_recognize(
 
         assert (
             actual_result.intent.name == expected_result.intent.name
-        ), f"Recognized intents do not match between Speech-to-Phrase and Home Assistant: {error_info}"
+        ), f"Recognized intents do not match between Speech-to-Phrase and the intents library: {error_info}"
 
         # Only check entity names, not values. This is because some values are
-        # normalized by the Home Assistant intents, such as "rideau" ->
+        # normalized by the builtin intents, such as "rideau" ->
         # "rideaux" in French. In the futurue, these normalizations should be
         # codified here so values can be checked too.
         assert (
             actual_result.entities.keys() == expected_result.entities.keys()
-        ), f"Recognized entities do not match between Speech-to-Phrase and Home Assistant: {error_info}"
+        ), f"Recognized entities do not match between Speech-to-Phrase and the intents library: {error_info}"
 
 
 def gen_test(language: str, wav_path: Path, generated: bool) -> None:

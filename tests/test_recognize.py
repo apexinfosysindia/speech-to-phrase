@@ -1,4 +1,4 @@
-"""Test that Speech-to-Phrase sentences will be recognized by Home Assistant."""
+"""Test that Speech-to-Phrase sentences will be recognized by the intents library."""
 
 import itertools
 from dataclasses import dataclass
@@ -23,7 +23,7 @@ class Resources:
 
     language: str
     stp_intents: Intents
-    hass_intents: Intents
+    builtin_intents: Intents
     test_sentences: list[str]
 
 
@@ -36,13 +36,13 @@ def shared_lists_fixture() -> dict[str, Any]:
 @pytest.fixture(name="lang_resources", params=TEST_LANGUAGES, scope="session")
 def lang_resources_fixture(request, shared_lists: dict[str, Any]) -> Resources:
     language = request.param
-    hass_intents_dict = get_intents(language)
-    if not hass_intents_dict:
-        hass_intents_dict = get_intents(get_language_family(language))
+    builtin_intents_dict = get_intents(language)
+    if not builtin_intents_dict:
+        builtin_intents_dict = get_intents(get_language_family(language))
 
-    assert hass_intents_dict, f"No intents for language: {language}"
+    assert builtin_intents_dict, f"No intents for language: {language}"
 
-    hass_lists = hass_intents_dict.setdefault("lists", {})
+    builtin_lists = builtin_intents_dict.setdefault("lists", {})
 
     # Load language sentences
     with open(
@@ -51,7 +51,7 @@ def lang_resources_fixture(request, shared_lists: dict[str, Any]) -> Resources:
         sentences_dict = yaml.load(sentences_file)
 
     for list_name, list_values in sentences_dict.get("lists", {}).items():
-        hass_lists[list_name] = {"values": list_values}
+        builtin_lists[list_name] = {"values": list_values}
 
     lang_data = LanguageData.from_dict(sentences_dict)
     stp_intents_dict = lang_data.to_intents_dict()
@@ -66,10 +66,10 @@ def lang_resources_fixture(request, shared_lists: dict[str, Any]) -> Resources:
 
     test_things = Things.from_dict(fixtures_dict["fixtures"])
     test_things_dict = test_things.to_lists_dict()
-    hass_lists.update(test_things_dict)
+    builtin_lists.update(test_things_dict)
     stp_lists.update(test_things_dict)
 
-    hass_intents = Intents.from_dict(hass_intents_dict)
+    builtin_intents = Intents.from_dict(builtin_intents_dict)
     stp_intents = Intents.from_dict(stp_intents_dict)
     lang_data.add_transformed_slot_lists(stp_intents.slot_lists)
 
@@ -81,7 +81,7 @@ def lang_resources_fixture(request, shared_lists: dict[str, Any]) -> Resources:
     return Resources(
         language=language,
         stp_intents=stp_intents,
-        hass_intents=hass_intents,
+        builtin_intents=builtin_intents,
         test_sentences=test_sentences_dict["sentences"],
     )
 
@@ -111,18 +111,18 @@ def test_recognize(lang_resources: Resources) -> None:
         assert result.intent_sentence is not None
         stp_sentences_to_check.discard(result.intent_sentence.text)
 
-        # Home Assistant
+        # Builtin intents library
         result = next(
             iter(
                 recognize_all(
-                    sentence, lang_resources.hass_intents, intent_context=INTENT_CONTEXT
+                    sentence, lang_resources.builtin_intents, intent_context=INTENT_CONTEXT
                 )
             ),
             None,
         )
         assert (
             result is not None
-        ), f"Sentence not recognized by Home Assistant: {error_info}"
+        ), f"Sentence not recognized by the intents library: {error_info}"
 
     assert not stp_sentences_to_check, (
         "Speech-to-Phrase sentence templates were not tested: "

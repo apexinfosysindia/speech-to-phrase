@@ -29,8 +29,8 @@ INFO = Info(
         AsrProgram(
             name="speech-to-phrase",
             attribution=Attribution(
-                name="The Home Assistant Authors",
-                url="http://github.com/OHF-voice/speech-to-phrase",
+                name="The Speech-to-Phrase Authors",
+                url="https://github.com/apexinfosysindia/speech-to-phrase",
             ),
             description="Fast but limited speech-to-text",
             installed=True,
