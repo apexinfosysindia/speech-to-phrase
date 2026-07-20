@@ -1,0 +1,180 @@
+---
+language: "de"
+
+lists:
+  color:
+    - "weiss"
+    - "schwarz"
+    - "rot"
+    - "orange"
+    - "gelb"
+    - "grün"
+    - "blau"
+    - "violett"
+    - "braun"
+
+expansion_rules:
+  timer_set: "starte|setze|stelle|erstelle"
+  timer_cancel: "beende|stoppe"
+
+wildcards:
+  - "todo_item"
+
+data:
+  # cancel
+  - "vergiss es"
+  - "stop"
+
+  # date and time
+  - "wie spät ist es"
+  - "wie viel uhr (ist es|haben wir)[ jetzt]"
+  - "(welchen tag|welches datum) haben wir heute"
+  - "(welcher tag|welches datum) ist heute"
+  - "Was ist heute für ein Tag"
+
+  # weather
+  - "wie ist das Wetter"
+  - sentences:
+      - "wie ist das Wetter (für|in) {name}"
+    domains:
+      - "weather"
+
+  # # lights (area)
+  - "[alle|die] (lichter|lampen) (an|ein|aus)(schalten|machen)"
+  - "(schalt|mach)[e] [alle|die] (lichter|lampen) (an|ein|aus)"
+  - "(schalt|mach)[e] [alle|die] (lichter|lampen) in [der|dem] {area} (an|ein|aus)"
+  - "schalt[e] {name} (an|ein|aus)"
+  - "[schalte ][ das]licht[er] [(an|ein|aus|einschalten|schalten|machen|ausschalten)]"
+
+  - "stell[e] [die] helligkeit [hier] auf {brightness} prozent"
+  - "stell[e] [die] helligkeit von [der|dem] {area} auf {brightness} prozent"
+  - "{area} helligkeit auf {brightness} prozent [stellen]"
+
+  - "stell[e] [die] lichter [hier] auf {color}"
+  - "stell[e] [[die] farbe von den] lichtern [hier] auf {color}"
+  - "stell[e] [die] [farbe von [den]] {area} lichtern auf {color}"
+  - "stell[e] [die] {area} lichter auf {color}"
+  - "stell[e] lichter in [der|dem] {area} auf {color}"
+
+  # # lights (name)
+  - sentences:
+      - "stell[e] [die] helligkeit von [der|dem] {name} auf {brightness} prozent"
+      - "stell[e] [die] {name} helligkeit auf {brightness} prozent"
+      - "{name} auf {brightness} prozent"
+    domains:
+      - "light"
+    light_supports_brightness: true
+
+  - sentences:
+      - "stell[e] [die] [farbe von [der|dem]] {name} auf {color}"
+      - "stell[e] [die] {name} [farbe] auf {color}"
+      - "{name} [farbe] auf {color}"
+    domains:
+      - "light"
+    light_supports_color: true
+
+  # doors and windows
+  - "(öffne|schließ[e]) [die] (jalousien|vorhänge|fenster|rollläden) in [der|dem] {area}"
+  - "(öffne|schließ[e]) [die] {area} (jalousien|vorhänge|fenster|rollläden)"
+  - "[die] (jalousien|vorhänge|fenster|rollläden) (in [der|dem]| im) {area} (öffnen|schließen)"
+  - "[die] {area} (jalousien|vorhänge|fenster|rollläden) (öffnen|schließen)"
+  - sentences:
+      - "(öffne|schließ[e]) [den|die] {name}"
+      - "(öffne|schließ[e]) [den|die] {name} in [der|dem] {area}"
+      - "ist [der|die|das] {name} (offen|geschlossen)"
+    domains:
+      - "cover"
+
+  # # locks
+  # - sentences:
+  #     - "(lock|unlock) [the] {name}"
+  #     - "is [the] {name} (locked|unlocked)"
+  #   domains:
+  #     - "lock"
+
+  # generic on/off
+  - sentences:
+      - "(schalt|mach)[e] [den|die|das] {name} (an|ein|aus)"
+      - "(schalt|mach)[e] (an|ein|aus) [den|die|das] {name}"
+      - "(schalt|mach)[e] [den|die|das] {name} (an|ein|aus) in [der|dem] {area}"
+      - "(schalt|mach)[e] [den|die|das] {name} in [der|dem] {area} (an|ein|aus)"
+    domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+
+  # scripts
+  - sentences:
+      - "aktiviere {name} Skript"
+      - "starte[ das] {name} [Skript]"
+    domains:
+      - "script"
+  
+  # scenes
+  - sentences:
+      - "aktiviere[ die] {name} Szene"
+    domains:
+      - "scene"
+
+  # timers
+  - "<timer_set> [einen|ein] {seconds} Sekunden Timer"
+  - "<timer_set> [einen|ein] {minutes} Minuten Timer"
+  - "<timer_set> [einen|ein] {hours} Stunden Timer"
+  - "<timer_set> [einen|ein] Timer (auf|für) {seconds} Sekunden"
+  - "<timer_set> [einen|ein] Timer (auf|für) 1 Minute"
+  - "<timer_set> [einen|ein] Timer (auf|für) {minutes} Minuten"
+  - "<timer_set> [einen|ein] Timer (auf|für) 1 Stunde"
+  - "<timer_set> [einen|ein] Timer (auf|für) {hours} Stunden"
+  - "<timer_set> [einen|ein] Timer (auf|für) 1 Stunde und 1 Minute"
+  - "<timer_set> [einen|ein] Timer (auf|für) 1 Stunde und {minutes} Minuten"
+  - "<timer_set> [einen|ein] Timer (auf|für) {hours} Stunden und {minutes} Minuten"
+  - "{seconds} Sekunden Timer[ bitte]"
+  - "{minutes} Minuten Timer[ bitte]"
+  - "{hours} Stunden Timer[ bitte]"
+  - "<timer_cancel>[ (den|meinen)] Timer"
+  - "<timer_cancel> (alle[ meine]|sämtliche) Timer"
+  - "pausiere[ (den|meinen)] Timer"
+  - "setze[ (den|meinen)] Timer fort"
+  - "Timer Status"
+  - "Status (des|meines) Timers"
+  - "wie lange läuft (der|mein) Timer noch"
+
+  # Medien
+  - "(pause|fortsetzen)"
+  - "nächster [(Titel|Eintrag)]"
+  - "überspringe [[diesen ](Titel|Song)]"
+  - sentences:
+      - "(pause|fortsetzen) [den] {name}"
+      - "nächster [(Titel|Eintrag)] auf [dem] {name}"
+      - "überspringe [[den ](Titel|Song)] auf [dem] {name}"
+    domains:
+      - "media_player"
+
+  # temperature
+  - "wie[ (hoch|niedrig)] ist die temperatur"
+  - "wie[ (hoch|niedrig)] ist die temperatur (in|im) [der|dem] {area}"
+  - "wie[ (hoch|niedrig)] ist die {area} temperatur"
+  - sentences:
+      - "wie (warm|kalt) ist es[ hier]"
+      - "wie warm ist [(der|die|das)] {name}"  
+    domains:
+      - "climate"
+
+  # sensors
+  - sentences:
+      - "wie[ (hoch|niedrig)] ist die {name} temperatur"
+      - "wie[ (hoch|niedrig)] ist die temperatur von [der|dem] {name}"
+    domains:
+      - "sensor"
+
+  # todo
+  - sentences:
+      - "füge {todo_item} der {name} [Liste] hinzu"
+      - "füge {todo_item} auf [die] {name} [Liste] hinzu"
+      - "füge {todo_item} auf [die] [Liste] {name} hinzu"
+      - "setze {todo_item} auf [die] {name} [Liste]"
+      - "setze {todo_item} auf [die] [Liste] {name}"
+    domains:
+      - "todo"

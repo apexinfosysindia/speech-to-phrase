@@ -1,0 +1,42 @@
+---
+language: "de"
+
+fixtures:
+  floors:
+    - name:
+        - "erster Stock"
+        - "ersten Stock"
+
+  areas:
+    - name: "Küchen"
+    - name: "Büro"
+
+  entities:
+    - name: "New York"
+      domain: "weather"
+
+    - name: "EcoBee"
+      domain: "climate"
+
+    - name: "Lampe"
+      domain: "light"
+      light_supports_brightness: true
+      light_supports_color: true
+
+    - name: "Außenluftfeuchtigkeit"
+      domain: "sensor"
+
+    - name: "Garagentor"
+      domain: "cover"
+
+    - name: "Vordertür"
+      domain: "lock"
+
+    - name: "Batteriewarnung"
+      domain: "script"
+
+    - name: "Partymodus"
+      domain: "scene"
+
+    - name: "Haushalt"
+      domain: "todo"

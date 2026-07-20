@@ -1,0 +1,15 @@
+---
+language: "cs"
+
+sentences:
+  # cancel
+  - "nevadí"
+  - "zapomeň na to"
+
+  # date and time
+  - "kolik je hodin"
+  - "jaké je datum"
+
+  # generic on/off
+  - "zapni světlo předsíň"
+  - "vypnout Kuchyňský vypínač"

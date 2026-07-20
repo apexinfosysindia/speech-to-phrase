@@ -1,0 +1,49 @@
+---
+language: "fr"
+
+fixtures:
+  floors:
+    - name: "Premier Étage"
+    - name: "Rez-de-chaussée"
+
+  areas:
+    - name: "Bureau"
+    - name: "Salon"
+    - name: "Chambre"
+
+  entities:
+    - name: "New York"
+      domain: "weather"
+
+    - name: "Lumière du plafond"
+      domain: "light"
+      light_supports_brightness: true
+      light_supports_color: true
+
+    - name: "Porte d'entrée"
+      domain: "lock"
+
+    - name: "Entrée"
+      domain: "lock"
+
+    - name: "TV"
+      domain: "media_player"
+      media_player_supports_pause: true
+
+    - name: "Température extérieure"
+      domain: "sensor"
+
+    - name: "Ventilateur de plafond"
+      domain: "fan"
+
+    - name: "Mode partie"
+      domain: "scene"
+
+    - name: "Mode discret"
+      domain: "script"
+
+    - name: "Nestor"
+      domain: "vacuum"
+
+    - name: "Rideau gauche"
+      domain: "cover"

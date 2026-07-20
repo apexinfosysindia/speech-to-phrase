@@ -1,0 +1,43 @@
+---
+language: "nl"
+
+fixtures:
+  floors:
+    - name: "Eerste Verdieping"
+
+  areas:
+    - name: "Keuken"
+    - name: "Kantoor"
+
+  entities:
+    - name: "Staande Lamp"
+      domain: "light"
+      light_supports_brightness: true
+      light_supports_color: true
+
+    - name: "New York"
+      domain: "weather"
+
+    - name: "EcoBee"
+      domain: "climate"
+
+    - name: "Garagedeur"
+      domain: "cover"
+
+    - name: "Voordeur"
+      domain: "lock"
+
+    - name: "TV"
+      domain: "media_player"
+
+    - name: "Slaapkamerschakelaar"
+      domain: "switch"
+
+    - name: "Stealthmodus"
+      domain: "script"
+
+    - name: "Feestmodus"
+      domain: "scene"
+
+    - name: "Buitentemperatuur"
+      domain: "sensor"

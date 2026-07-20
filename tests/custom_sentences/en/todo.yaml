@@ -1,0 +1,7 @@
+---
+language: "en"
+lists:
+  todo_item:
+    values:
+      - apples
+      - bananas

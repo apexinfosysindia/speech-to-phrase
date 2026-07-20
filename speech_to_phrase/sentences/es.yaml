@@ -1,0 +1,175 @@
+---
+language: "es"
+
+lists:
+  color:
+    - "blanco"
+    - "negro"
+    - "rojo"
+    - "naranja"
+    - "anaranjado"
+    - "amarillo"
+    - "verde"
+    - "azul"
+    - "lila"
+    - "morado"
+    - "morada"
+    - "púrpura"
+    - "marrón"
+    - "rosa"
+    - "rosado"
+
+  cover_classes:
+    - "toldo"
+    - "toldos"
+    - "persiana"
+    - "persianas"
+    - "cortina"
+    - "cortinas"
+    - "puerta"
+    - "puertas"
+    - "puerta de garaje"
+    - "puertas de garaje"
+    - "cancela de garaje"
+    - "cancelas de garaje"
+    - "portón de garaje"
+    - "portones de garaje"
+    - "verja"
+    - "verjas"
+    - "cancela"
+    - "cancelas"
+    - "portón"
+    - "portones"
+    - "estor"
+    - "estores"
+    - "contraventana"
+    - "contraventanas"
+    - "veneciana"
+    - "venecianas"
+    - "ventana"
+    - "ventanas"
+
+expansion_rules:
+  name: "[el |la |los |las ]{name}"
+  area: "[en el |en la |del |de la ]{area}"
+
+data:
+  # cancel
+  - "no importa"
+
+  # date and time
+  - "qué hora es"
+  - "qué día es"
+
+  # weather
+  - "qué tiempo hace"
+  - sentences:
+      - "qué tiempo hace en <name>"
+    domains:
+      - "weather"
+
+  # lights (area)
+  - "(enciende|prende|apaga) (las luces|la luz)"
+  - "(enciende|prende|apaga) (las luces|la luz) <area>"
+  - "(ajusta|pon) [el] brillo <area> al {brightness} [por ciento]"
+  - "(ajusta|pon) [el] color de las luces <area> a {color}"
+
+  # lights (name)
+  - sentences:
+      - "(ajusta|pon) [el] brillo de <name> al {brightness} [por ciento]"
+    domains:
+      - "light"
+    light_supports_brightness: true
+
+  - sentences:
+      - "(ajusta|pon) [el] color de <name> a {color}"
+    domains:
+      - "light"
+    light_supports_color: true
+
+  # doors and windows
+  - "(abre|cierra|cerrá) [el |la |los |las ]{cover_classes} <area>"
+  - sentences:
+      - "abre <name>"
+      - "(cierra|cerrá) <name>"
+      - "está <name> (abiert|cerrad)(a|o)"
+    domains:
+      - "cover"
+
+  # locks
+  - sentences:
+      - "(cierra|cerrá) con llave <name>"
+      - "abre <name>"
+      - "está cerrad(a|o) con llave <name>"
+      - "está abiert(a|o) <name>"
+    domains:
+      - "lock"
+
+  # generic on/off
+  - sentences:
+      - "(enciende|prende|apaga) <name>"
+    domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+
+  # scripts and scenes
+  - sentences:
+      - "ejecuta <name>"
+    domains:
+      - "script"
+
+  - sentences:
+      - "activa <name>"
+    domains:
+      - "scene"
+
+  # timers
+  - "(inicia|pon|ajusta) [un] temporizador de {seconds} segundos"
+  - "(inicia|pon|ajusta) [un] temporizador de 1 minuto"
+  - "(inicia|pon|ajusta) [un] temporizador de {minutes} minutos"
+  - "(inicia|pon|ajusta) [un] temporizador de 1 minuto y medio"
+  - "(inicia|pon|ajusta) [un] temporizador de {minutes} minutos {seconds} segundos"
+  - "(inicia|pon|ajusta) [un] temporizador de 1 hora"
+  - "(inicia|pon|ajusta) [un] temporizador de {hours} horas"
+  - "(inicia|pon|ajusta) [un] temporizador de 1 hora y media"
+  - "(inicia|pon|ajusta) [un] temporizador de 1 hora y 1 minuto"
+  - "(inicia|pon|ajusta) [un] temporizador de 1 hora y {minutes} minutos"
+  - "(inicia|pon|ajusta) [un] temporizador de {hours} horas y {minutes} minutos"
+  - "(inicia|pon|ajusta) [un] temporizador de {hours} horas y media"
+
+  - "cancela [el] temporizador"
+  - "cancela [todos] los temporizadores"
+  - "(pausa|continúa) [el] temporizador"
+  - "estado de temporizador"
+  - "estado [de[l]] [mi[s]] temporizador[es]"
+  - "cuánto falta para [el|los|mi[s]] temporizador[es]"
+
+  # media
+  - "(pausa|continúa)"
+  - "siguiente canción"
+  - sentences:
+      - "(pausa|continúa) <name>"
+      - "siguiente canción en <name>"
+    domains:
+      - "media_player"
+
+  # temperature
+  - "cuál es la temperatura"
+  - "qué temperatura hace"
+  - "cuánto calor hace"
+  - "cuál es la temperatura en <area>"
+  - "cuánto calor hace en <area>"
+  - sentences:
+      - "cuál es la temperatura de[l] <name>"
+    domains:
+      - "climate"
+
+  # sensors
+  - sentences:
+      - "cuál es <name>"
+      - "cómo está <name>"
+    domains:
+      - "sensor"

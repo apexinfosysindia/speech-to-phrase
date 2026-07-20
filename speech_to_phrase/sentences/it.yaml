@@ -1,0 +1,185 @@
+---
+language: "it"
+
+lists:
+  color:
+    - "bianco"
+    - "nero"
+    - "rosso"
+    - "arancione"
+    - "giallo"
+    - "verde"
+    - "blu"
+    - "viola"
+    - "marrone"
+    - "rosa"
+    - "turchese"
+
+transformations:
+  de:
+    # If the regular expression matches...
+    - match: "^[aeiouàèéìòóù]"
+      # ...output these strings with the matching value:
+      outputs:
+        - "dell'{value}"
+        - "{value}"
+    # If no matches, output these strings with the value:
+    - outputs:
+        - "del {value}"
+        - "della {value}"
+        - "degli {value}"
+        - "delle {value}"
+        - "{value}"
+  le:
+    - match: "^[aeiouàèéìòóù]"
+      outputs:
+        - "l'{value}"
+        - "{value}"
+    - outputs:
+        - "lo {value}"
+        - "la {value}"
+        - "gli {value}"
+        - "le {value}"
+        - "{value}"
+
+# Apply transformations to different source lists to produce new lists.
+transformed_lists:
+  de_name:
+    source: "name"
+    transformations:
+      - "de"
+  de_area:
+    source: "area"
+    transformations:
+      - "de"
+  de_floor:
+    source: "floor"
+    transformations:
+      - "de"
+  le_name:
+    source: "name"
+    transformations:
+      - "le"
+  le_area:
+    source: "area"
+    transformations:
+      - "le"
+  le_floor:
+    source: "floor"
+    transformations:
+      - "le"
+
+data:
+  # cancel
+  - "lascia (stare|perdere)"
+  - "niente"
+
+  # date and time
+  - "che ore sono"
+  - "che giorno è oggi"
+
+  # weather
+  - "che tempo fa"
+  - "com'è il tempo"
+  - sentences:
+      - "che tempo fa a {name}"
+      - "com'è il tempo a {name}"
+    domains:
+      - "weather"
+
+  # lights (area)
+  - "(accendi|spegni) le luci"
+  - "(accendi|spegni) le luci in {area}"
+  - "imposta la luminosità in {area} al {brightness} percento"
+  - "imposta le luci in {area} su {color}"
+
+  # lights (name)
+  - sentences:
+      - "imposta la luminosità {de_name} al {brightness} percento"
+    domains:
+      - "light"
+    light_supports_brightness: true
+
+  - sentences:
+      - "imposta {le_name} su {color}"
+    domains:
+      - "light"
+    light_supports_color: true
+
+  # doors and windows
+  # - "(open|close) [the] (blinds|curtains|windows) in [the] {area}"
+  # - "(open|close) [the] {area} (blinds|curtains|windows)"
+  - sentences:
+      - "(apri|chiudi) {le_name}"
+      - "{le_name} è (apert|chius)(o|a|e|i)"
+    domains:
+      - "cover"
+
+  # # locks
+  # - sentences:
+  #     - "(lock|unlock) [the] {name}"
+  #     - "is [the] {name} (locked|unlocked)"
+  #   domains:
+  #     - "lock"
+
+  # generic on/off
+  - sentences:
+      - "(accendi|spegni) {le_name}"
+    domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+
+  # # scripts and scenes
+  # - sentences:
+  #     - "run [the] {name} [script]"
+  #   domains:
+  #     - "script"
+
+  # - sentences:
+  #     - "activate [the] {name} [scene]"
+  #   domains:
+  #     - "scene"
+
+  # timers
+  - "imposta [un] timer [di] {seconds} secondi"
+  - "imposta [un] timer [di] 1 minuto"
+  - "imposta [un] timer [di] {minutes} minuti"
+  - "imposta [un] timer [di] 1 ora"
+  - "imposta [un] timer [di] {hours} ore"
+  - "imposta [un] timer [di] 1 ora [e] 1 minuto"
+  - "imposta [un] timer [di] 1 ora [e] {minutes} minuti"
+  - "imposta [un] timer [di] {hours} ore [e] {minutes} minuti"
+
+  - "(annulla|cancella) [il|il mio] timer"
+  - "(annulla|cancella) tutti [i|i miei] timer"
+  - "(metti in pausa|riprendi|continua)[ il| il mio] timer"
+  - "stato timer"
+  - "stato (di|del[ mio]|dei[ miei]) timer"
+  - "[quanto ]tempo (manca|resta|rimane|rimanente) (a|su)(l[ mio]|i[ miei]) timer"
+
+  # media
+  - "(pausa|riprendi)"
+  - "vai avanti"
+  # - sentences:
+  #     - "(pause|resume) [the] {name}"
+  #     - "next [(track|item)] on [the] {name}"
+  #   domains:
+  #     - "media_player"
+
+  # temperature
+  - "qual è la temperatura"
+  - "qual è la temperatura in {area}"
+  # - sentences:
+  #     - "(what is|what's) the {name} (temp|temperature)"
+  #     - "(what is|what's) the (temp|temperature) of [the] {name}"
+  #   domains:
+  #     - "climate"
+
+  # # sensors
+  # - sentences:
+  #     - "what is [the [value of [the]]] {name}"
+  #   domains:
+  #     - "sensor"

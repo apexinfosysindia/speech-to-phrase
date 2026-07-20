@@ -1,0 +1,14 @@
+---
+language: "en"
+intents:
+  HassSetTemperature:
+    data:
+      - sentences:
+          - "set temperature to {temperature} degrees"
+
+lists:
+  temperature:
+    range:
+      from: 20
+      to: 25
+      fractions: "halves"

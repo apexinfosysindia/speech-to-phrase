@@ -1,0 +1,172 @@
+---
+language: "nl"
+
+lists:
+  color:
+    - "wit"
+    - "zwart"
+    - "rood"
+    - "oranje"
+    - "geel"
+    - "groen"
+    - "blauw"
+    - "paars"
+    - "violet"
+    - "bruin"
+    - "roze"
+
+  cover_classes:
+    - "gordijn"
+    - "gordijnen"
+    - "vitrage"
+    - "vitrages"
+    - "jaloezie"
+    - "jaloezieën"
+    - "luxaflex"
+    - "screen"
+    - "screens"
+    - "rolgordijn"
+    - "rolgordijnen"
+    - "rolluik"
+    - "rolluiken"
+    - "shutter"
+    - "shutters"
+
+data:
+  # cancel
+  - "laat maar [zitten]"
+  - "annuleer"
+
+  # date and time
+  - "hoe laat is het [nu]"
+  - "hoe laat leven we [nu]"
+  - "wat is de [huidige] tijd"
+  - "wat is (de tijd;nu)"
+  - "(vertel me|geef me) de [huidige] tijd"
+  - "welke (dag|datum) is het [vandaag|nu]"
+  - "wat is de [huidige] (dag|datum)"
+  - "(vertel me|geef me) de [huidige] (datum|dag)"
+
+  # weather
+  - "wat voor weer is het [nu] [buiten]"
+  - "(wat|hoe) is (het [huidige] weer|de [huidige] weersvoorspelling) [buiten]"
+  - sentences:
+      - "(wat|hoe) is (het weer|de weersvoorspelling) (voor|in|volgens) [de|het] {name}"
+      - "wat voor weer is het [nu] (voor|in|volgens) [de|het] {name}"
+    domains:
+      - "weather"
+
+  # lights (area)
+  - "(zet|doe) [de] lamp[en] (aan|uit)"
+  - "(zet|doe) [alle] {area} lampen (aan|uit)"
+  - "(zet|doe) [alle] lampen in [de|het] {area} (aan|uit)"
+  - "maak [de] helderheid van [de|het] {area} naar {brightness} procent"
+  - "maak [de] {area} helderheid naar {brightness} procent"
+  - "maak [[de] kleur van] [de|het] {area} naar {color}"
+  - "maak [de] (lampen|verlichting) in [de|het] {area} naar {color}"
+
+  # lights (name)
+  - sentences:
+      - "maak [de] helderheid van [de|het] {name} naar {brightness} [procent]"
+      - "maak [de|het] {name} helderheid naar {brightness} [procent]"
+    domains:
+      - "light"
+    light_supports_brightness: true
+
+  - sentences:
+      - "maak [[de] kleur van] [de|het] {name} naar {color}"
+      - "maak [de] {name} kleur naar {color}"
+    domains:
+      - "light"
+    light_supports_color: true
+
+  # doors and windows
+  - "(open|sluit) {cover_classes} (in|op) [de|het] {area}"
+  - "doe {cover_classes} in [de|het] {area} (open|dicht)"
+  - sentences:
+      - "(open|sluit) [de|het] {name}"
+      - "doe [de|het] {name} (open|dicht)"
+      - "(is|staat) [de|het] {name} (gesloten|dicht)"
+    domains:
+      - "cover"
+
+  # locks
+  - sentences:
+      - "(vergrendel|ontgrendel) [de|het] {name}"
+      - "(is|staat) [de|het] {name} (op slot|vergrendeld|open|ontgrendeld)"
+    domains:
+      - "lock"
+
+  # generic on/off
+  - sentences:
+      - "(zet|doe) [de|het] {name} (aan|uit)"
+      - "(zet|doe) [de|het] {name} in [de] {area} (aan|uit)"
+    domains:
+      - "light"
+      - "switch"
+      - "fan"
+      - "media_player"
+      - "input_boolean"
+
+  # scripts and scenes
+  - sentences:
+      - "start {name}"
+    domains:
+      - "script"
+
+  - sentences:
+      - "activeer {name}"
+    domains:
+      - "scene"
+
+  # timers
+  - "(zet|maak) [een] timer voor {seconds} seconden"
+  - "(zet|maak) [een] timer voor 1 minuut"
+  - "(zet|maak) [een] timer voor {minutes} minuten"
+  - "(zet|maak) [een] timer voor anderhalve minuut"
+  - "(zet|maak) [een] timer voor 1 en een halve minuut"
+  - "(zet|maak) [een] timer voor {minutes} en een halve minuut"
+  - "(zet|maak) [een] timer voor 1 uur"
+  - "(zet|maak) [een] timer voor {hours} uur"
+  - "(zet|maak) [een] timer voor een half uur"
+  - "(zet|maak) [een] timer voor 1 en een half uur"
+  - "(zet|maak) [een] timer voor {hours} en een half uur"
+  - "(zet|maak) [een] timer voor 1 uur en 1 minuut"
+  - "(zet|maak) [een] timer voor 1 uur en {minutes} minuten"
+  - "(zet|maak) [een] timer voor {hours} uur en {minutes} minuten"
+
+  - "(annuleer|stop) [de|mijn|m'n] timer"
+  - "(annuleer|stop) (alle|al (de|mijn|m'n)) timers"
+  - "(pauzeer|hervat) [de|mijn|m'n] timer"
+  - "timer status"
+  - "status van [de|mijn|m'n] timer[s]"
+  - "[hoe veel] tijd [is] [er] [nog] over voor [de|mijn|m'n] timer[s]"
+
+  # media
+  - "(pauzeer|stop|hervat) [[de ]muziek]"
+  - "volgende [nummer|track|lied[je]]"
+  - "sla dit over"
+  - sentences:
+      - "(pauzeer|stop|hervat) [de|het] {name}"
+      - "volgende (nummer|track|lied[je]) op [de|het] {name}"
+      - "sla dit op [de|het] {name} over"
+    domains:
+      - "media_player"
+
+  # temperature
+  - "wat is de temperatuur"
+  - "hoe (warm|koud|heet|koel) is het"
+  - "wat is de temperatuur in [de|het] {area}"
+  - "hoe (warm|koud|heet|koel) is het in [de|het] {area}"
+  - "wat is de {area} temperatuur"
+  - sentences:
+      - "wat is de {name} temperatuur"
+      - "wat is de temperatuur van [de|het] {name}"
+    domains:
+      - "climate"
+
+  # sensors
+  - sentences:
+      - "wat is de status van [de|het] {name}"
+    domains:
+      - "sensor"

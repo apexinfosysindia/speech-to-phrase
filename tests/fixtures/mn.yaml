@@ -1,0 +1,7 @@
+---
+language: "mn"
+
+fixtures:
+  entities:
+    - name: "унтлагын өрөөний гэрэл"
+      domain: "light"

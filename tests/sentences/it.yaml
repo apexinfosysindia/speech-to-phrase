@@ -1,0 +1,72 @@
+---
+language: "it"
+
+sentences:
+  # cancel
+  - "lascia stare"
+  - "lascia perdere"
+  - "niente"
+
+  # date and time
+  - "che ore sono"
+  - "che giorno è oggi"
+
+  # weather
+  - "che tempo fa"
+  - "com'è il tempo"
+  - "che tempo fa a New York"
+  - "com'è il tempo a New York"
+
+  # lights (area)
+  - "accendi le luci"
+  - "spegni le luci in Cucina"
+  - "imposta la luminosità in Cucina al 50 percento"
+  - "imposta le luci in Cucina su bianco"
+
+  # lights (name)
+  - "imposta la luminosità della Lampada al 100 percento"
+  - "imposta la Lampada su rosa"
+
+  # doors and windows
+  - "apri Porta del Garage"
+  - "chiudi Porta del Garage"
+  - "Porta del Garage è aperta"
+  - "Porta del Garage è chiusa"
+
+  # generic on/off
+  - "accendi la Lampada"
+  - "spegni la Lampada"
+
+  # timers
+  - "imposta timer di 30 secondi"
+  - "imposta un timer di 1 minuto"
+  - "imposta timer 10 minuti"
+  - "imposta un timer 1 ora"
+  - "imposta timer di 5 ore"
+  - "imposta un timer 1 ora e 1 minuto"
+  - "imposta timer di 1 ora e 25 minuti"
+  - "imposta un timer 3 ore 15 minuti"
+
+  - "annulla timer"
+  - "cancella il mio timer"
+  - "annulla tutti i timer"
+  - "cancella tutti timer"
+  - "metti in pausa timer"
+  - "riprendi il timer"
+  - "continua il mio timer"
+  - "stato timer"
+  - "stato di timer"
+  - "stato del timer"
+  - "quanto tempo manca al timer"
+  - "tempo resta al mio timer"
+  - "quanto tempo rimane sui timer"
+  - "tempo rimanente ai miei timer"
+
+  # media
+  - "pausa"
+  - "riprendi"
+  - "vai avanti"
+
+  # temperature
+  - "qual è la temperatura"
+  - "qual è la temperatura in Ufficio"

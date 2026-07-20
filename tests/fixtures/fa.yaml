@@ -1,0 +1,9 @@
+---
+language: "fa"
+
+fixtures:
+  entities:
+    - name: "چراغ اتاق خواب"
+      domain: "light"
+      light_supports_brightness: true
+      light_supports_color: true

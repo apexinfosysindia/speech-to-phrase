@@ -1,0 +1,13 @@
+---
+language: "ru"
+
+fixtures:
+  entities:
+    - name:
+        - "ночную лампу"
+      domain: "light"
+
+    - name:
+        - "Москва"
+        - "Москве"
+      domain: "weather"

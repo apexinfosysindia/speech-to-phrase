@@ -1,0 +1,12 @@
+---
+language: "eu"
+
+sentences:
+  # cancel
+  - "ez kezkatu"
+
+  # generic on/off
+  - "piztu Logelako lanpara"
+  - "itzali Logelako lanpara"
+  - "aktibatu Logelako lanpara"
+  - "desaktibatu Logelako lanpara"

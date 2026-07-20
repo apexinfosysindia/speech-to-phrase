@@ -1,0 +1,396 @@
+---
+language: "fr"
+
+sentences:
+  # Nevermind
+  - "oublie"
+  - "oublies"
+  - "annuler"
+  - "chut"
+  - "tais toi"
+  - "silence"
+
+  # Date
+  - "quel jour sommes-nous"
+
+  # Time
+  - "quelle heure est-il"
+
+  # weather
+  - "quel temps fait-il"
+  - "quel temps fait-il à New York"
+
+  # Turning on lights per area
+  - "allume la lumière du Bureau"
+  - "allume les lumières dans le Bureau"
+  - "allumer le Bureau"
+
+  # Turning on lights per area (context awareness)
+  - "allume les lumières"
+  - "allumer la lumière"
+
+  # Turning on lights per floor
+  - "allume la lumière du Premier Étage"
+  - "allume les lumières dans Premier Étage"
+  - "allumer Premier Étage"
+
+  # Turning off lights per area
+  - "éteins la lumière du Salon"
+  - "éteins les lumières dans le Salon"
+  - "éteindre la lumière dans le Salon"
+  - "éteins le Salon"
+  - "éteindre le Salon"
+
+  # Turning off lights per area (context awareness)
+  - "éteins les lumières"
+  - "éteindre la lumière"
+
+  # Turning off lights per floor
+  - "éteins la lumière du Rez-de-chaussée"
+  - "éteins les lumières dans Rez-de-chaussée"
+  - "éteindre le Rez-de-chaussée"
+
+  # Setting brightness per name
+  - "règle la luminosité de la Lumière du plafond à 50 pourcent"
+  - "règle la Lumière du plafond à 50 pourcent"
+  - "régler la Lumière du plafond à 25 pourcent"
+  - "allume la Lumière du plafond à 100 pourcent"
+
+  # Setting brightness per area
+  - "règle la luminosité du Salon à 10 pourcent"
+  - "règle la luminosité dans la Chambre à 10 pourcent"
+  - "régler la Chambre à 45 pourcent"
+  - "allumer le Bureau à 75 pourcent"
+
+  # Setting brightness per (context awareness)
+  - "règle la luminosité à 15 pourcent"
+  - "régler la luminosité à 95 pourcent"
+
+  # Setting brightness per floor
+  - "règle la luminosité de la Premier Étage à 35 pourcent"
+  - "règle la luminosité dans le Premier Étage à 35 pourcent"
+  - "régler le Premier Étage à 5 pourcent"
+  - "allume Rez-de-chaussée à 55 pourcent"
+
+  # Setting color per name
+  - "allume la Lumière du plafond en rouge"
+  - "règle la Lumière du plafond en vert"
+  - "régler la Lumière du plafond en violet"
+
+  # Setting color per area
+  - "allume la lumière du Bureau en orange"
+  # - "allume les lumières dans le Bureau en orange"
+  - "allume le Bureau en orange"
+  - "règle les lumières du Salon en blanc"
+  - "régler le Salon en jaune"
+
+  # Setting color per (context awareness)
+  - "allumer la lumière en marron"
+  - "règle les lumières en rose"
+  - "régler la lumière en bleu"
+
+  # Setting color per floor
+  - "allume les lumières du Premier Étage en rose"
+  - "allumer le Premier Étage en rose"
+  - "règle le Premier Étage en noir"
+  - "régler le Premier Étage en noir"
+  - "règle les lumières du Premier Étage en rose"
+
+  # Opening Covers per name
+  - "ouvre le Rideau gauche"
+  - "ouvrir le Rideau gauche"
+
+  # Opening Covers per device class and area
+  - "ouvre le store dans le Bureau"
+  - "ouvre la banne dans le Bureau"
+  - "ouvre l'auvent dans le Bureau"
+  - "ouvre le rideau dans le Bureau"
+  - "ouvre la porte dans le Bureau"
+  # - "ouvrir la porte de garage dans le Bureau"
+  - "ouvrir la fenêtre dans le Bureau"
+  - "ouvrir le volet dans le Bureau"
+  - "ouvrir le portail dans le Bureau"
+  - "ouvre les stores dans la Chambre"
+  - "ouvre les bannes dans la Chambre"
+  - "ouvre les auvents dans la Chambre"
+  - "ouvre les rideaux dans la Chambre"
+  - "ouvrir toutes les portes dans la Chambre"
+  - "ouvrir toutes les portes de garage dans la Chambre"
+  - "ouvrir toutes les fenêtres dans la Chambre"
+  - "ouvrir toutes les volets dans la Chambre"
+  - "ouvrir toutes les portails dans la Chambre"
+  #
+  - "ouvrir la fenêtre du Bureau"
+  - "ouvrir toutes les fenêtres du Bureau"
+
+  # Opening Covers per device class and floor
+  - "ouvre le store dans le Premier Étage"
+  - "ouvre la banne dans le Premier Étage"
+  - "ouvre l'auvent dans le Premier Étage"
+  - "ouvre le rideau dans le Premier Étage"
+  - "ouvre la porte dans le Premier Étage"
+  # - "ouvrir la porte de garage dans le Premier Étage"
+  - "ouvrir la fenêtre dans le Premier Étage"
+  - "ouvrir le volet dans le Premier Étage"
+  - "ouvrir le portail dans le Premier Étage"
+  - "ouvre les stores dans le Rez-de-chaussée"
+  - "ouvre les bannes dans le Rez-de-chaussée"
+  - "ouvre les auvents dans le Rez-de-chaussée"
+  - "ouvre les rideaux dans le Rez-de-chaussée"
+  - "ouvrir toutes les portes dans le Rez-de-chaussée"
+  - "ouvrir toutes les portes de garage dans le Rez-de-chaussée"
+  - "ouvrir toutes les fenêtres dans le Rez-de-chaussée"
+  - "ouvrir toutes les volets dans le Rez-de-chaussée"
+  - "ouvrir toutes les portails dans le Rez-de-chaussée"
+  #
+  - "ouvrir la fenêtre du Premier Étage"
+  - "ouvrir toutes les fenêtres du Premier Étage"
+
+  # Opening Covers per name and area
+  - "ouvre la Rideau gauche dans le Salon"
+  - "ouvrir la Rideau gauche dans le Salon"
+  - "ouvrir la Rideau gauche du Salon"
+
+  # Opening Covers per device class and area (context awareness)
+  - "ouvre le store"
+  - "ouvre la banne"
+  - "ouvre l'auvent"
+  - "ouvre le rideau"
+  - "ouvre la porte"
+  # - "ouvre la porte de garage"
+  - "ouvre la fenêtre"
+  - "ouvre le volet"
+  - "ouvre le portail"
+  - "ouvrir les stores"
+  - "ouvrir les bannes"
+  - "ouvrir les auvents"
+  - "ouvrir les rideaux"
+  - "ouvrir les portes"
+  - "ouvrir les portes de garage"
+  - "ouvrir les fenêtres"
+  - "ouvrir les volets"
+  - "ouvrir les portails"
+
+  # Closing Covers per name
+  - "ferme la Rideau gauche"
+
+  # Closing Covers per device class and area
+  - "ferme le store dans le Bureau"
+  - "ferme la banne dans le Bureau"
+  - "ferme l'auvent dans le Bureau"
+  - "ferme le rideau dans le Bureau"
+  - "ferme la porte dans le Bureau"
+  # - "fermer la porte de garage dans le Bureau"
+  - "fermer la fenêtre dans le Bureau"
+  - "fermer le volet dans le Bureau"
+  - "fermer le portail dans le Bureau"
+  - "ferme tous les stores dans la Chambre"
+  - "ferme tous les bannes dans la Chambre"
+  - "ferme tous les auvents dans la Chambre"
+  - "ferme les rideaux dans la Chambre"
+  - "ferme les portes dans la Chambre"
+  # - "fermer les portes de garage dans la Chambre"
+  - "fermer toutes les fenêtres dans la Chambre"
+  - "fermer toutes les volets dans la Chambre"
+  - "fermer toutes les portails dans la Chambre"
+  #
+  - "fermer la fenêtre du Bureau"
+  - "fermer toutes les fenêtres de la Chambre"
+
+  # Closing Covers per device class and floor
+  - "ferme le store dans le Premier Étage"
+  - "ferme la banne dans le Premier Étage"
+  - "ferme l'auvent dans le Premier Étage"
+  - "ferme le rideau dans le Premier Étage"
+  - "ferme la porte dans le Premier Étage"
+  # - "fermer la porte de garage dans le Premier Étage"
+  - "fermer la fenêtre dans le Premier Étage"
+  - "fermer le volet dans le Premier Étage"
+  - "fermer le portail dans le Premier Étage"
+  - "ferme tous les stores dans le Rez-de-chaussée"
+  - "ferme tous les bannes dans le Rez-de-chaussée"
+  - "ferme tous les auvents dans le Rez-de-chaussée"
+  - "ferme les rideaux dans le Rez-de-chaussée"
+  - "ferme les portes dans le Rez-de-chaussée"
+  # - "fermer les portes de garage dans le Rez-de-chaussée"
+  - "fermer toutes les fenêtres dans le Rez-de-chaussée"
+  - "fermer toutes les volets dans le Rez-de-chaussée"
+  - "fermer toutes les portails dans le Rez-de-chaussée"
+  #
+  - "fermer la fenêtre du Premier Étage"
+  - "fermer toutes les fenêtres du Rez-de-chaussée"
+
+  # Closing Covers per name and area
+  - "ferme la Rideau gauche dans le Bureau"
+  - "ferme la Rideau gauche du Bureau"
+
+  # Closing Covers per device class and area (context awareness)
+  - "ferme le store"
+  - "ferme la banne"
+  - "ferme l'auvent"
+  - "ferme le rideau"
+  - "ferme la porte"
+  # - "ferme la porte de garage"
+  - "ferme la fenêtre"
+  - "ferme le volet"
+  - "ferme le portail"
+  - "fermer les stores"
+  - "fermer les bannes"
+  - "fermer les auvents"
+  - "fermer les rideaux"
+  - "fermer les portes"
+  - "fermer les portes de garage"
+  - "fermer les fenêtres"
+  - "fermer les volets"
+  - "fermer les portails"
+
+  # Locking locks per name
+  - "verrouille l'Entrée"
+
+  # Locking locks per name and area
+  - "verrouiller l'Entrée dans le Bureau"
+  - "verrouille l'Entrée du Salon"
+
+  # Unlocking locks per name
+  - "déverrouille l'Entrée"
+
+  # Unlocking locks per name and area
+  - "déverrouille l'Entrée dans le Bureau"
+  - "déverrouiller l'Entrée du Salon"
+
+  # Starting vacuums
+  - "lance la Nestor"
+  - "démarrer la Nestor"
+
+  # Stopping vacuums
+  - "arrêter la Nestor"
+
+  # Turning on things per name (Generic)
+  - "allume la Ventilateur de plafond"
+
+  # Turning on things per name and area (Generic)
+  - "allume la Ventilateur de plafond dans le Bureau"
+  - "allumer la Ventilateur de plafond du Salon"
+
+  # Turning off things per name (Generic)
+  - "éteins la Ventilateur de plafond"
+  - "éteindre la Ventilateur de plafond"
+
+  # Turning off things per name and area (Generic)
+  - "éteins la Ventilateur de plafond dans le Salon"
+  - "éteindre la Ventilateur de plafond du Salon"
+
+  # Running scripts
+  - "activer le script Mode discret"
+  - "lance Mode discret"
+
+  # Running scenes
+  - "active Mode partie"
+  - "lancer la scène Mode partie"
+
+  # Pausing Media players per name
+  - "mets TV en pause"
+  - "mettre TV sur pause"
+
+  # Pausing Media players (context awarness)
+  - "pause"
+  - "arrête la musique"
+  - "arrête le film"
+  - "arrête la vidéo"
+  - "arrêter l'épisode"
+  - "arrêter la radio"
+  - "arrêter le média"
+
+  # Pausing Media players per area
+  - "arrête la musique dans le Bureau"
+  - "arrête le film dans le Bureau"
+  - "arrête la vidéo dans le Bureau"
+  - "arrêter l'épisode du Salon"
+  - "arrêter la radio du Salon"
+  - "arrêter le média du Salon"
+
+  # Resuming Media players per name
+  - "reprends la lecture sur TV"
+  - "reprendre la lecture sur TV"
+
+  # Resuming Media players (context awarness)
+  - "lecture"
+  - "reprends la musique"
+  - "reprends le film"
+  - "reprends la vidéo"
+  - "reprendre l'épisode"
+  - "reprendre la radio"
+  - "reprendre le média"
+
+  # Resuming Media players per area
+  - "reprends la musique dans le Salon"
+  - "reprends le film dans le Salon"
+  - "reprends le média dans le Salon"
+  - "reprends la vidéo du Salon"
+  - "reprendre l'épisode du Salon"
+  - "reprendre la radio du Salon"
+
+  # Going to the next media on a media player (context awarness)
+  - "suivant"
+  - "musique suivante"
+  - "film suivant"
+  - "vidéo suivante"
+  - "épisode suivant"
+  - "radio suivante"
+  - "média suivant"
+
+  # Going to the previous media on a media player (context awarness)
+  - "précédent"
+  - "musique précédente"
+  - "film précédent"
+  - "vidéo précédente"
+  - "épisode précédent"
+  - "radio précédente"
+  - "média précédent"
+
+  # Fetching temperature (context awarness)
+  - "quelle est la température"
+  - "combien fait-il"
+
+  # Fetching temperature per area
+  - "quelle est la température dans le Salon"
+  - "combien fait-il dans le Bureau"
+
+  # Fetching sensor value
+  - "quel est le Température extérieure"
+
+  # Setting Timers
+  - "minuteur 30 secondes"
+  - "minuteur 1 minute"
+  - "minuteur 5 minutes"
+  - "minuteur 1 minute et 45 secondes"
+  - "minuteur 10 minutes et 30 secondes"
+  - "minuteur 25 minutes 30"
+  - "minuteur 1 heure"
+  - "minuteur 3 heures"
+  - "minuteur 1 heure 30"
+  - "minuteur 4 heures 30"
+  - "minuteur 1 heure et 20 minutes"
+  - "minuteur 8 heures et 10 minutes"
+
+  # Cancel Timers
+  - "supprime le minuteur"
+  - "supprimer mon minuteur"
+
+  # Cancel all Timers
+  - "supprimer tous les minuteurs"
+
+  # Pausing Timers
+  - "mets le minuteur en pause"
+  - "mettre mon minuteur sur pause"
+  - "mets sur pause mon minuteur"
+  - "mettre en pause le minuteur"
+
+  # Resuming Timers
+  - "reprends le minuteur"
+  - "reprendre mon minuteur"
+
+  # Timer status
+  - "combien de temps reste-t-il"
+  - "combien de temps reste-t-il sur le minuteur"
+  - "combien de temps reste-t-il dans mon minuteur"

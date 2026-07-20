@@ -1,0 +1,122 @@
+---
+language: "en"
+
+sentences:
+  # cancel
+  - "nevermind"
+
+  # date and time
+  - "what's the time"
+  - "what time is it"
+  - "what's the date"
+  - "what is today's date"
+
+  # weather
+  - "what's the weather"
+  - "what's the New York weather"
+  - "what's the weather in New York"
+
+  # lights (area)
+  - "turn on the lights"
+  - "turn off the lights in here"
+  - "turn the lights on"
+  - "turn the lights off in here"
+  - "turn on the Kitchen lights"
+  - "turn off all of the Kitchen lights"
+  - "turn on lights in the Kitchen"
+  - "turn off all of the lights in the Kitchen"
+  - "set brightness to 50 percent"
+  - "set the brightness of the Kitchen to 25 percent"
+  - "set Kitchen brightness to 100 percent"
+  - "set lights to red"
+  - "set color of lights to green"
+  - "set color of the Kitchen lights to blue"
+  - "set Kitchen lights to white"
+  - "set lights in the Kitchen to yellow"
+
+  # lights (name)
+  - "set brightness of the Bed Light to 10 percent"
+  - "set Bed Light brightness to 75 percent"
+  - "set the color of the Bed Light to yellow"
+  - "set Bed Light color to orange"
+
+  # doors and windows
+  - "open the blinds in the Office"
+  - "close the windows in the Office"
+  - "open the Office curtains"
+  - "close the Kitchen windows"
+  - "open the Sliding Door"
+  - "close the Sliding Door"
+  - "open the Sliding Door in the Office"
+  - "is the Sliding Door open"
+  - "is the Sliding Door closed"
+
+  # locks
+  - "lock the Front Door"
+  - "unlock the Front Door"
+  - "is the Front Door locked"
+  - "is the Front Door unlocked"
+
+  # generic on/off
+  - "turn on the TV"
+  - "turn off TV"
+  - "turn Bed Light on"
+  - "turn Bed Light off"
+  - "turn on the TV in the Kitchen"
+  - "turn off the TV in the Office"
+  - "turn the Standing Light in the Office on"
+  - "turn the Standing Light in the Office off"
+
+  # scripts and scenes
+  - "run Party Time script"
+  - "activate Mood Lighting"
+
+  # timers
+  - "set a timer for 30 seconds"
+  - "start a timer for 1 minute"
+  - "create a timer for 5 minutes"
+  - "set timer for 1 minute and 45 seconds"
+  - "start a timer for 10 minutes and 20 seconds"
+  - "create a timer for 5 and a half minutes"
+  - "set a timer for 1 hour"
+  - "start timer for 3 hours"
+  - "create a timer for 4 and a half hours"
+  - "set a timer for 1 hour and 1 minute"
+  - "start a timer for 1 hour and 8 minutes"
+  - "create timer for 6 hours and 20 minutes"
+
+  - "cancel timer"
+  - "stop my timer"
+  - "cancel all timers"
+  - "stop all of my timers"
+  - "pause timer"
+  - "resume the timer"
+  - "timer status"
+  - "status of the timers"
+  - "how much time is left on my timer"
+
+  # media
+  - "pause"
+  - "resume"
+  - "next"
+  - "next track"
+  - "skip this song"
+  - "pause the TV"
+  - "resume TV"
+  - "next on TV"
+  - "skip track on the TV"
+
+  # temperature
+  - "what is the temperature"
+  - "what's the temp"
+  - "what's the temperature in the Kitchen"
+  - "what's the Office temp"
+  - "what is the EcoBee temperature"
+  - "what's the temp of the EcoBee"
+
+  # sensors
+  - "what is the Outdoor Humidity"
+  - "what is the value of Outdoor Humidity"
+
+  # todo
+  - "add apples to my Shopping List"

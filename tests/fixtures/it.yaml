@@ -1,0 +1,34 @@
+---
+language: "it"
+
+fixtures:
+  areas:
+    - name: "Cucina"
+    - name: "Ufficio"
+
+  entities:
+    - name: "Lampada"
+      domain: "light"
+      light_supports_brightness: true
+      light_supports_color: true
+
+    - name: "New York"
+      domain: "weather"
+
+    - name: "EcoBee"
+      domain: "climate"
+
+    - name: "Porta del Garage"
+      domain: "cover"
+
+    - name: "Porta Principale"
+      domain: "lock"
+
+    - name: "Interruttore Cucina"
+      domain: "switch"
+
+    - name: "TV"
+      domain: "media_player"
+
+    - name: "Temperatura Esterna"
+      domain: "sensor"

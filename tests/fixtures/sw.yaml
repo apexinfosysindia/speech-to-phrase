@@ -1,0 +1,7 @@
+---
+language: "sw"
+
+fixtures:
+  entities:
+    - name: "Taa Ofisini"
+      domain: "light"

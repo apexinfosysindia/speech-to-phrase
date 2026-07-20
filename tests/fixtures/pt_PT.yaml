@@ -1,0 +1,7 @@
+---
+language: "pt_PT"
+
+fixtures:
+  entities:
+    - name: "Luz do Quarto"
+      domain: "light"

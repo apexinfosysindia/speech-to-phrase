@@ -1,0 +1,6 @@
+---
+language: "de"
+lists:
+  todo_item:
+    values:
+      - Putzen

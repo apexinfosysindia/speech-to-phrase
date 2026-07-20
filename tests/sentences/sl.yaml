@@ -1,0 +1,15 @@
+---
+language: "sl"
+
+sentences:
+  # cancel
+  - "prekini"
+  - "prekliči"
+
+  # date and time
+  - "koliko je ura"
+  - "kateri dan je danes"
+
+  # generic on/off
+  - "vklopi luč v spalnici"
+  - "izklopi luč v spalnici"

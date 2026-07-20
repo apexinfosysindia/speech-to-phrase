@@ -1,0 +1,18 @@
+---
+language: "pl"
+
+sentences:
+  # cancel
+  - "nieważne"
+  - "nieistotne"
+  - "anuluj"
+
+  # date and time
+  - "jaką mamy godzinę"
+  - "jaka jest dzisiejsza data"
+
+  # generic on/off
+  - "włącz Lampę główną"
+  - "uruchom Lampę główną"
+  - "wyłącz Lampę główną"
+  - "zatrzymaj Lampę główną"

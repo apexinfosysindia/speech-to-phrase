@@ -1,0 +1,7 @@
+---
+language: "ro"
+
+fixtures:
+  entities:
+    - name: "lustra"
+      domain: "light"

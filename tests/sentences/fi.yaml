@@ -1,0 +1,14 @@
+---
+language: "fi"
+
+sentences:
+  # cancel
+  - "ei mitään"
+  - "ei sittenkään mitään"
+
+  # date and time
+  - "Paljonko kello on"
+  - "mikä päivä tänään on"
+
+  # generic on/off
+  - "kytke päälle Eteisen Lamppu"

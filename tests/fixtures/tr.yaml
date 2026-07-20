@@ -1,0 +1,7 @@
+---
+language: "tr"
+
+fixtures:
+  entities:
+    - name: "Lambayı"
+      domain: "light"

@@ -1,0 +1,10 @@
+---
+language: "th"
+
+sentences:
+  # cancel
+  - "ไม่เป็นไร"
+
+  # generic on/off
+  # - "เปิดไฟห้องนอน"
+  - "ปิดไฟห้องนอน"

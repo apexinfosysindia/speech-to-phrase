@@ -1,0 +1,48 @@
+---
+language: "en"
+
+fixtures:
+  areas:
+    - name: "Kitchen"
+    - name: "Office"
+
+  entities:
+    - name: "Bed Light"
+      domain: "light"
+      light_supports_brightness: true
+      light_supports_color: true
+
+    - name: "Standing Light"
+      domain: "light"
+      light_supports_brightness: false
+      light_supports_color: false
+
+    - name: "New York"
+      domain: "weather"
+
+    - name: "EcoBee"
+      domain: "climate"
+
+    - name: "Garage Door"
+      domain: "cover"
+
+    - name: "Sliding Door"
+      domain: "cover"
+
+    - name: "Front Door"
+      domain: "lock"
+
+    - name: "TV"
+      domain: "media_player"
+
+    - name: "Party Time"
+      domain: "script"
+
+    - name: "Mood Lighting"
+      domain: "scene"
+
+    - name: "Outdoor Humidity"
+      domain: "sensor"
+
+    - name: "Shopping List"
+      domain: "todo"

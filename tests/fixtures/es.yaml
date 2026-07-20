@@ -1,0 +1,43 @@
+---
+language: "es"
+
+fixtures:
+  floors:
+    - name: "Primer Piso"
+
+  areas:
+    - name: "Cocina"
+    - name: "Oficina"
+
+  entities:
+    - name: "Lámpara"
+      domain: "light"
+      light_supports_brightness: true
+      light_supports_color: true
+
+    - name: "New York"
+      domain: "weather"
+
+    - name: "EcoBee"
+      domain: "climate"
+
+    - name: "Puerta del Garaje"
+      domain: "cover"
+
+    - name: "Puerta Principal"
+      domain: "lock"
+
+    - name: "TV"
+      domain: "media_player"
+
+    - name: "Interruptor dormitorio"
+      domain: "switch"
+
+    - name: "Modo sigiloso"
+      domain: "script"
+
+    - name: "Modo fiesta"
+      domain: "scene"
+
+    - name: "Humedad Exterior"
+      domain: "sensor"

@@ -1,0 +1,9 @@
+---
+language: "fi"
+
+fixtures:
+  entities:
+    - name: "Eteisen Lamppu"
+      domain: "light"
+      light_supports_brightness: true
+      light_supports_color: true

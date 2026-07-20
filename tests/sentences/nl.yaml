@@ -1,0 +1,127 @@
+---
+language: "nl"
+
+sentences:
+  # cancel
+  - "laat maar"
+  - "annuleer"
+
+  # date and time
+  - "hoe laat is het"
+  - "hoe laat leven we"
+  - "wat is de tijd"
+  - "wat is nu de tijd"
+  - "vertel me de tijd"
+  - "welke datum is het nu"
+  - "wat is de datum"
+  - "geef me de dag"
+
+  # weather
+  - "wat voor weer is het"
+  - "wat is het huidige weer buiten"
+  - "hoe is de weersvoorspelling in New York"
+  - "wat voor weer is het voor New York"
+
+  # lights (area)
+  - "zet lampen aan"
+  - "doe de lamp uit"
+  - "zet Keuken lampen aan"
+  - "doe alle Keuken lampen uit"
+  - "zet lampen in de Keuken aan"
+  - "doe alle lampen in de Keuken uit"
+  - "maak helderheid van de Keuken naar 50 procent"
+  - "maak Keuken helderheid naar 100 procent"
+  - "maak de kleur van de Keuken naar wit"
+  - "maak lampen in de Keuken naar rood"
+  - "maak verlichting in Keuken naar groen"
+
+  # lights (name)
+  - "maak helderheid van Staande Lamp naar 20 procent"
+  - "maak de Staande Lamp helderheid naar 80 procent"
+  - "maak de kleur van de Staande Lamp naar violet"
+  - "maak Staande Lamp kleur naar blauw"
+
+  # doors and windows
+  - "open gordijnen in de Keuken"
+  - "sluit vitrages in de Keuken"
+  - "doe screens in de Keuken open"
+  - "doe rolgordijnen in de Keuken dicht"
+  - "open de Garagedeur"
+  - "sluit Garagedeur"
+  - "doe Garagedeur open"
+  - "doe de Garagedeur dicht"
+  - "is Garagedeur gesloten"
+  - "staat de Garagedeur dicht"
+
+  # locks
+  - "vergrendel Voordeur"
+  - "ontgrendel de Voordeur"
+  - "is Voordeur op slot"
+  - "is Voordeur vergrendeld"
+  - "staat Voordeur open"
+  - "staat Voordeur ontgrendeld"
+
+  # generic on/off
+  - "zet Slaapkamerschakelaar aan"
+  - "zet Slaapkamerschakelaar uit"
+  - "doe Slaapkamerschakelaar in de Keuken aan"
+  - "doe Slaapkamerschakelaar in de Keuken uit"
+
+  # scripts and scenes
+  - "start Stealthmodus"
+  - "activeer Feestmodus"
+
+  # timers
+  - "zet timer voor 30 seconden"
+  - "zet een timer voor 1 minuut"
+  - "zet timer voor 5 minuten"
+  - "zet een timer voor anderhalve minuut"
+  - "zet timer voor 1 en een halve minuut"
+  - "zet timer voor 8 en een halve minuut"
+  - "zet een timer voor 1 uur"
+  - "maak timer voor 3 uur"
+  - "maak een timer voor een half uur"
+  - "maak timer voor 1 en een half uur"
+  - "maak timer voor 4 en een half uur"
+  - "maak een timer voor 1 uur en 1 minuut"
+  - "maak een timer voor 1 uur en 10 minuten"
+  - "maak timer voor 7 uur en 25 minuten"
+
+  - "annuleer timer"
+  - "stop mijn timer"
+  - "annuleer alle timers"
+  - "stop al de timers"
+  - "pauzeer timer"
+  - "hervat m'n timer"
+  - "timer status"
+  - "status van de timers"
+  - "hoe veel tijd is er nog over voor de timers"
+
+  # media
+  - "pauzeer"
+  - "stop de muziek"
+  - "hervat muziek"
+  - "volgende"
+  - "sla dit over"
+  - "pauzeer TV"
+  - "volgende nummer op TV"
+  - "sla dit op TV over"
+
+  # temperature
+  - "wat is de temperatuur"
+  - "hoe warm is het"
+  - "wat is de temperatuur in Keuken"
+  - "hoe koud is het in Keuken"
+  - "wat is de Keuken temperatuur"
+  - "wat is de EcoBee temperatuur"
+  - "wat is de temperatuur van EcoBee"
+
+  # sensors
+  - "wat is de status van Buitentemperatuur"
+
+failing_transcriptions:
+  - "maak een timer voor 1 uur en 1 minuut"
+  - "zet een timer voor 1 uur"
+  - "maak timer voor 1 en een half uur"
+  - "maak een timer voor 1 uur en 10 minuten"
+  - "zet timer voor 1 en een halve minuut"

@@ -1,0 +1,11 @@
+---
+language: "sw"
+
+sentences:
+  # cancel
+  - "usijali"
+  - "sahau"
+
+  # generic on/off
+  - "washa Taa Ofisini"
+  - "zima Taa Ofisini"

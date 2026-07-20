@@ -1,0 +1,14 @@
+---
+language: "ca"
+
+sentences:
+  # cancel
+  - "cancela"
+
+  # date and time
+  - "quina hora és"
+  - "quin dia és"
+
+  # generic on/off
+  - "encén Llum Dormitori"
+  - "apaga Llum Dormitori"

@@ -1,0 +1,17 @@
+---
+language: "ro"
+
+sentences:
+  # cancel
+  - "lasă"
+  - "lasa"
+
+  # date and time
+  - "cat este ora"
+  - "ce dată este astăzi"
+
+  # generic on/off
+  - "pornește lustra"
+  - "oprește lustra"
+  - "activează lustra"
+  - "dezactivează lustra"

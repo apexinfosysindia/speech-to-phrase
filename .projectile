@@ -1,0 +1,8 @@
+- /.venv/
+- /.mypy_cache/
+- /local/
+- /tests/train/
+- /speech_to_phrase.egg-info/
+- /.pytest_cache/
+- /tests/wav/
+- /coqui_stt/tensorflow/

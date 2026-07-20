@@ -1,0 +1,12 @@
+---
+language: "tr"
+
+sentences:
+  # cancel
+  - "önemli değil"
+
+  # generic on/off
+  - "Lambayı aç"
+  - "Lambayı yak"
+  - "Lambayı kapat"
+  - "Lambayı söndür"

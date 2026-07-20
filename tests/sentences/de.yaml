@@ -1,0 +1,63 @@
+---
+language: "de"
+
+sentences:
+  # cancel
+  - "vergiss es"
+
+  # date and time
+  - "wie spät ist es"
+  - "wie viel uhr ist es"
+  - "welchen tag haben wir heute"
+  - "welches datum ist heute"
+
+  # weather
+  - "wie ist das Wetter"
+  - "wie ist das Wetter in New York"
+  - "was für Wetter hat es in New York"
+
+  # doors and windows
+  - "öffne das Garagentor"
+  - "schließ das Garagentor"
+
+  # generic on/off
+  - "schalte die Lampe an"
+  - "mach die Lampe aus"
+
+  # scripts and scenes
+  - "aktiviere Batteriewarnung Skript"
+  - "aktiviere Partymodus Szene"
+
+  # timers
+  - "starte Timer auf 30 Sekunden"
+  - "setze einen Timer für 1 Minute"
+  - "stelle Timer auf 5 Minuten"
+  - "erstelle einen Timer auf 1 Stunde"
+  - "starte Timer für 3 Stunden"
+  - "setze einen Timer auf 1 Stunde und 1 Minute"
+  - "stelle Timer für 1 Stunde und 5 Minuten"
+  - "erstelle einen Timer auf 3 Stunden und 5 Minuten"
+
+  - "beende Timer"
+  - "stoppe alle Timer"
+  - "pausiere Timer"
+  - "pausiere den Timer"
+  - "setze den Timer fort"
+  - "Timer Status"
+  - "Status des Timers"
+  - "Status meines Timers"
+  - "wie lange läuft der Timer noch"
+  - "wie lange läuft mein Timer noch"
+
+  # media
+  - "pause"
+  - "Weiter"
+  - "nächster Titel"
+  - "nächster Song"
+
+  # todo
+  - "füge Putzen der Haushalt Liste hinzu"
+  - "füge Putzen auf die Liste Haushalt hinzu"
+  - "füge Putzen auf die Haushalt Liste hinzu"
+  - "setze Putzen auf die Liste Haushalt"
+  - "setze Putzen auf die Haushalt Liste"

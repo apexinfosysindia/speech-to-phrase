@@ -1,0 +1,10 @@
+---
+language: "el"
+
+fixtures:
+  entities:
+    - name: "Φωτιστικό υπνοδωματίου"
+      domain: "light"
+
+    - name: "Αθήνα"
+      domain: "weather"

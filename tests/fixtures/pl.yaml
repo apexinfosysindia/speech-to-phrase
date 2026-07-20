@@ -1,0 +1,9 @@
+---
+language: "pl"
+
+fixtures:
+  entities:
+    - name:
+        - "Lampa główna"
+        - "Lampę główną"
+      domain: "light"

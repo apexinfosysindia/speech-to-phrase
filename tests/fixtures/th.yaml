@@ -1,0 +1,7 @@
+---
+language: "th"
+
+fixtures:
+  entities:
+    - name: "ไฟห้องนอน"
+      domain: "light"

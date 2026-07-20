@@ -1,0 +1,11 @@
+---
+language: "sl"
+
+fixtures:
+  entities:
+    - name:
+        - "luč v spalnici"
+        - "lučko v spalnici"
+        - "luči v spalnici"
+        - "lučka v spalnici"
+      domain: "light"
