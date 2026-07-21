@@ -4,28 +4,56 @@ language: "de"
 sentences:
   # cancel
   - "vergiss es"
+  - "stop"
 
   # date and time
   - "wie spät ist es"
   - "wie viel uhr ist es"
   - "welchen tag haben wir heute"
   - "welches datum ist heute"
+  - "Was ist heute für ein Tag"
 
   # weather
   - "wie ist das Wetter"
   - "wie ist das Wetter in New York"
   - "was für Wetter hat es in New York"
 
+  # lights (area)
+  - "schalte alle lichter an"
+  - "alle lichter ausschalten"
+  - "licht aus"
+  - "schalte die lichter in dem Büro an"
+  - "stelle die helligkeit hier auf 50 prozent"
+  - "stelle die helligkeit von dem Büro auf 20 prozent"
+  - "Büro helligkeit auf 40 prozent stellen"
+  - "stelle die lichter hier auf gelb"
+  - "stelle die farbe von den lichtern auf grün"
+  - "stelle lichter in dem Büro auf blau"
+
+  # lights (name)
+  - "stelle die helligkeit von der Lampe auf 75 prozent"
+  - "Lampe auf 25 prozent"
+  - "stelle die farbe von der Lampe auf rot"
+  - "Lampe farbe auf blau"
+
   # doors and windows
   - "öffne das Garagentor"
   - "schließ das Garagentor"
+  - "öffne das Garagentor in dem Büro"
+  - "ist das Garagentor offen"
+  - "öffne die vorhänge in dem Büro"
+  - "öffne die Büro fenster"
+  - "die jalousien in dem Büro schließen"
+  - "die Küchen rollläden öffnen"
 
   # generic on/off
   - "schalte die Lampe an"
   - "mach die Lampe aus"
+  - "schalte die Lampe in dem Büro an"
 
   # scripts and scenes
   - "aktiviere Batteriewarnung Skript"
+  - "führe das Batteriewarnung Skript aus"
   - "aktiviere Partymodus Szene"
 
   # timers
@@ -37,6 +65,12 @@ sentences:
   - "setze einen Timer auf 1 Stunde und 1 Minute"
   - "stelle Timer für 1 Stunde und 5 Minuten"
   - "erstelle einen Timer auf 3 Stunden und 5 Minuten"
+  - "starte einen 30 Sekunden Timer"
+  - "setze einen 5 Minuten Timer"
+  - "erstelle einen 2 Stunden Timer"
+  - "20 Sekunden Timer bitte"
+  - "10 Minuten Timer bitte"
+  - "2 Stunden Timer bitte"
 
   - "beende Timer"
   - "stoppe alle Timer"
@@ -54,6 +88,21 @@ sentences:
   - "Weiter"
   - "nächster Titel"
   - "nächster Song"
+  - "überspringe dieses Lied"
+  - "pause den Fernseher"
+  - "den Fernseher fortsetzen"
+  - "nächster Titel auf dem Fernseher"
+  - "überspringe dieses Lied auf dem Fernseher"
+
+  # temperature
+  - "wie hoch ist die temperatur"
+  - "wie ist die temperatur im Büro"
+  - "wie warm ist es hier"
+  - "wie warm ist der EcoBee"
+  - "wie ist die temperatur von dem EcoBee"
+
+  # sensors
+  - "was ist der Wert von der Außenluftfeuchtigkeit"
 
   # todo
   - "füge Putzen der Haushalt Liste hinzu"

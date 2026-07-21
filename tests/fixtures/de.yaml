@@ -29,6 +29,9 @@ fixtures:
     - name: "Garagentor"
       domain: "cover"
 
+    - name: "Fernseher"
+      domain: "media_player"
+
     - name: "Vordertür"
       domain: "lock"
 
