@@ -120,7 +120,6 @@ transformed_lists:
 
 data:
   # Nevermind
-  # Full sentences in the intents library: sentences/fr/homeassistant_HassNevermind.yaml
   - "oublie[s]"
   - "annuler"
   - "chut"
@@ -128,15 +127,12 @@ data:
   - "silence"
 
   # Date
-  # Full sentences in the intents library: sentences/fr/homeassistant_HassGetCurrentDate.yaml
   - "quel jour sommes-nous"
   
   # Time
-  # Full sentences in the intents library: sentences/fr/homeassistant_HassGetCurrentTime.yaml
   - "quelle heure est-il"
 
   # weather
-  # Full sentences in the intents library: sentences/fr/weather_HassGetWeather.yaml
   - "quel temps fait-il"
   - sentences:
       - "quel temps fait-il à {le_name}"
@@ -144,39 +140,32 @@ data:
       - "weather"
 
   # Turning on lights per area 
-  # Full sentences in the intents library: sentences/fr/light_HassTurnOn.yaml
   - "allume[r] (les lumières|la lumière) {de_le_area}" # We do not need lumières as it's pronounced the same way as lumière
   - "allume[r] (les lumières|la lumière) dans {le_area}"
   - "allume[r] {le_area}"
 
   # Turning on lights per area (context awareness) 
-  # Full sentences in the intents library: sentences/fr/light_HassTurnOn.yaml
   - "allume[r] [tous|toutes] (les lumières|la lumière)"
 
   # Turning on lights per floor
-  # Full sentences in the intents library: sentences/fr/light_HassTurnOn.yaml
   - "allume[r] [tous|toutes] (les lumières|la lumière) {de_le_floor}"
   - "allume[r] [tous|toutes] (les lumières|la lumière) dans {le_floor}"
   - "allume[r] [tous|toutes] {le_floor}"
 
   # Turning off lights per area
-  # Full sentences in the intents library: sentences/fr/light_HassTurnOff.yaml
   - "(éteins|éteindre) [tous|toutes] (les lumières|la lumière) {de_le_area}"
   - "(éteins|éteindre) [tous|toutes] (les lumières|la lumière) dans {le_area}"
   - "(éteins|éteindre) [tous|toutes] {le_area}"
 
   # Turning off lights per area (context awareness)
-  # Full sentences in the intents library: sentences/fr/light_HassTurnOff.yaml
   - "(éteins|éteindre) [tous|toutes] (les lumières|la lumière)"
 
   # Turning off lights per floor
-  # Full sentences in the intents library: sentences/fr/light_HassTurnOff.yaml
   - "(éteins|éteindre) [tous|toutes] (les lumières|la lumière) {de_le_floor}"
   - "(éteins|éteindre) [tous|toutes] (les lumières|la lumière) dans {le_floor}"
   - "(éteins|éteindre) [tous|toutes] {le_floor}"
 
   # Setting brightness per name
-  # Full sentences in the intents library: sentences/fr/light_HassLightSet.yaml
   - sentences:
       - "(règle|régler) la luminosité {de_le_name} à {brightness} pourcent"
       - "(règle|régler) {le_name} à {brightness} pourcent"
@@ -186,25 +175,21 @@ data:
     light_supports_brightness: true
 
   # Setting brightness per area
-  # Full sentences in the intents library: sentences/fr/light_HassLightSet.yaml
   - "(règle|régler) la luminosité {de_le_area} à {brightness} pourcent"
   - "(règle|régler) la luminosité dans {le_area} à {brightness} pourcent"
   - "(règle|régler) {le_area} à {brightness} pourcent"
   - "allume[r] {le_area} à {brightness} pourcent"
   
   # Setting brightness per (context awareness)
-  # Full sentences in the intents library: sentences/fr/light_HassLightSet.yaml
   - "(règle|régler) la luminosité à {brightness} pourcent"
 
   # Setting brightness per floor
-  # Full sentences in the intents library: sentences/fr/light_HassLightSet.yaml
   - "(règle|régler) la luminosité {de_le_floor} à {brightness} pourcent"
   - "(règle|régler) la luminosité dans {le_floor} à {brightness} pourcent"
   - "(règle|régler) {le_floor} à {brightness} pourcent"
   - "allume[r] {le_floor} à {brightness} pourcent"
 
   # Setting color per name
-  # Full sentences in the intents library: sentences/fr/light_HassLightSet.yaml
   - sentences:
       - "allume[r] {le_name} en {color}"
       - "(règle|régler) {le_name} en {color}"
@@ -213,7 +198,6 @@ data:
     light_supports_color: true
 
   # Setting color per area
-  # Full sentences in the intents library: sentences/fr/light_HassLightSet.yaml
   - "allume[r] (les lumières|la lumière) {de_le_area} en {color}"
   # - "allume[r] (les lumières|la lumière) dans {le_area} en {color}"
   - "allume[r] {le_area} en {color}"
@@ -222,12 +206,10 @@ data:
   - "(règle|régler) {le_area} en {color}"
   
   # Setting color per (context awareness)
-  # Full sentences in the intents library: sentences/fr/light_HassLightSet.yaml
   - "allume[r] (les lumières|la lumière) en {color}"
   - "(règle|régler) (les lumières|la lumière) en {color}"
 
   # Setting color per floor
-  # Full sentences in the intents library: sentences/fr/light_HassLightSet.yaml
   - "allume[r] (les lumières|la lumière) {de_le_floor} en {color}"
   # - "allume[r] (les lumières|la lumière) dans {le_floor} en {color}"
   - "allume[r] {le_floor} en {color}"
@@ -236,21 +218,18 @@ data:
   - "(règle|régler) {le_floor} en {color}"
 
   # Opening Covers per name
-  # Full sentences in the intents library: sentences/fr/cover_HassTurnOn.yaml
   - sentences:
       - "(ouvre|ouvrir) {le_name}"
     domains:
       - "cover"
 
   # Opening Covers per device class and area
-  # Full sentences in the intents library: sentences/fr/cover_HassTurnOn.yaml
   - "(ouvre|ouvrir) {le_cover_class} dans {le_area}"
   - "(ouvre|ouvrir) [tous|toutes] {les_cover_classes} dans {le_area}"
   - "(ouvre|ouvrir) {le_cover_class} {de_le_area}"
   - "(ouvre|ouvrir) [tous|toutes] {les_cover_classes} {de_le_area}"
   
   # Opening Covers per name and area
-  # Full sentences in the intents library: sentences/fr/cover_HassTurnOn.yaml
   - sentences:
       - "(ouvre|ouvrir) {le_name} dans {le_area}"
       - "(ouvre|ouvrir) {le_name} {de_le_area}"
@@ -258,33 +237,28 @@ data:
       - "cover"
 
   # Opening Covers per device class and area (context awareness)
-  # Full sentences in the intents library: sentences/fr/cover_HassTurnOn.yaml
   - "(ouvre|ouvrir) {le_cover_class}"
   - "(ouvre|ouvrir) [tous|toutes] {les_cover_classes}"
 
   # Opening Covers per device class and floor
-  # Full sentences in the intents library: sentences/fr/cover_HassTurnOn.yaml
   - "(ouvre|ouvrir) {le_cover_class} dans {le_floor}"
   - "(ouvre|ouvrir) [tous|toutes] {les_cover_classes} dans {le_floor}"
   - "(ouvre|ouvrir) {le_cover_class} {de_le_floor}"
   - "(ouvre|ouvrir) [tous|toutes] {les_cover_classes} {de_le_floor}"
 
   # Closing Covers per name
-  # Full sentences in the intents library: sentences/fr/cover_HassTurnOff.yaml
   - sentences:
       - "ferme[r] {le_name}"
     domains:
       - "cover"
 
   # Closing Covers per device class and area
-  # Full sentences in the intents library: sentences/fr/cover_HassTurnOff.yaml
   - "ferme[r] {le_cover_class} dans {le_area}"
   - "ferme[r] [tous|toutes] {les_cover_classes} dans {le_area}"
   - "ferme[r] {le_cover_class} {de_le_area}"
   - "ferme[r] [tous|toutes] {les_cover_classes} {de_le_area}"
   
   # Closing Covers per name and area
-  # Full sentences in the intents library: sentences/fr/cover_HassTurnOff.yaml
   - sentences:
       - "ferme[r] {le_name} dans {le_area}"
       - "ferme[r] {le_name} {de_le_area}"
@@ -292,19 +266,16 @@ data:
       - "cover"
 
   # Closing Covers per device class and area (context awareness)
-  # Full sentences in the intents library: sentences/fr/cover_HassTurnOff.yaml
   - "ferme[r] {le_cover_class}"
   - "ferme[r] [tous|toutes] {les_cover_classes}"
 
   # Closing Covers per device class and floor
-  # Full sentences in the intents library: sentences/fr/cover_HassTurnOff.yaml
   - "ferme[r] {le_cover_class} dans {le_floor}"
   - "ferme[r] [tous|toutes] {les_cover_classes} dans {le_floor}"
   - "ferme[r] {le_cover_class} {de_le_floor}"
   - "ferme[r] [tous|toutes] {les_cover_classes} {de_le_floor}"
 
   # Setting position of covers per name
-  # Full sentences in the intents library: sentences/fr/cover_HassSetPosition.yaml
   # - sentences:
   #     - "(ouvre|ouvrir|ferme[r]) {le_name} à {position} pourcent"
   #     - "(règle|régler) {le_name} à {position} pourcent"
@@ -313,7 +284,6 @@ data:
   #   cover_supports_position: true
 
   # Setting position of covers per device class and area
-  # Full sentences in the intents library: sentences/fr/cover_HassSetPosition.yaml
   # - "(ouvre|ouvrir|ferme[r]) {le_cover_class} dans {le_area} à {position} pourcent"
   # - "(ouvre|ouvrir|ferme[r]) [tous|toutes] {les_cover_classes} dans {le_area} à {position} pourcent"
   # - "(ouvre|ouvrir|ferme[r]) {le_cover_class} {de_le_area} à {position} pourcent"
@@ -324,7 +294,6 @@ data:
   # - "(règle|régler) [tous|toutes] {les_cover_classes} {de_le_area} à {position} pourcent"
   
   # Setting position of covers per name and area
-  # Full sentences in the intents library: sentences/fr/cover_HassSetPosition.yaml
   # - sentences:
   #     - "(ouvre|ouvrir|ferme[r]) {le_name} dans {le_area} à {position} pourcent"
   #     - "(ouvre|ouvrir|ferme[r]) {le_name} {de_le_area} à {position} pourcent"
@@ -335,14 +304,12 @@ data:
   #   cover_supports_position: true
 
   # Setting position of covers per device class and area (context awareness)
-  # Full sentences in the intents library: sentences/fr/cover_HassSetPosition.yaml
   # - "(ouvre|ouvrir|ferme[r]) {le_cover_class} à {position} pourcent"
   # - "(ouvre|ouvrir|ferme[r]) {les_cover_classes} à {position} pourcent"
   # - "(règle|régler) {le_cover_class} à {position} pourcent"
   # - "(règle|régler) {les_cover_classes} à {position} pourcent"
 
   # Setting position of covers per device class and floor
-  # Full sentences in the intents library: sentences/fr/cover_HassSetPosition.yaml
   # - "(ouvre|ouvrir|ferme[r]) {le_cover_class} dans {le_floor} à {position} pourcent"
   # - "(ouvre|ouvrir|ferme[r]) [tous|toutes] {les_cover_classes} dans {le_floor} à {position} pourcent"
   # - "(ouvre|ouvrir|ferme[r]) {le_cover_class} {de_le_floor} à {position} pourcent"
@@ -353,14 +320,12 @@ data:
   # - "(règle|régler) [tous|toutes] {les_cover_classes} {de_le_floor} à {position} pourcent"
 
   # Locking locks per name
-  # Full sentences in the intents library: sentences/fr/lock_HassTurnOn.yaml
   - sentences:
       - "verrouille[r] {le_name}"
     domains:
       - "lock"
 
   # Locking locks per name and area
-  # Full sentences in the intents library: sentences/fr/lock_HassTurnOn.yaml
   - sentences:
       - "verrouille[r] {le_name} dans {le_area}"
       - "verrouille[r] {le_name} {de_le_area}"
@@ -368,14 +333,12 @@ data:
       - "lock"
 
   # Unlocking locks per name
-  # Full sentences in the intents library: sentences/fr/lock_HassTurnOff.yaml
   - sentences:
       - "déverrouille[r] {le_name}"
     domains:
       - "lock"
 
   # Unlocking locks per name and area
-  # Full sentences in the intents library: sentences/fr/lock_HassTurnOff.yaml
   - sentences:
       - "déverrouille[r] {le_name} dans {le_area}"
       - "déverrouille[r] {le_name} {de_le_area}"
@@ -383,7 +346,6 @@ data:
       - "lock"
 
   # Starting vacuums
-  # Full sentences in the intents library: sentences/fr/vacuum_HassVacuumStart.yaml
   - sentences:
       - "lance[r] {le_name}"
       - "démarre[r] {le_name}"
@@ -391,14 +353,12 @@ data:
       - "vacuum"
 
   # Stopping vacuums
-  # Full sentences in the intents library: sentences/fr/vacuum_HassVacuumReturnToBase.yaml
   - sentences:
       - "arrête[r] {le_name}"
     domains:
       - "vacuum"
   
   # Turning on things per name (Generic)
-  # Full sentences in the intents library: sentences/fr/homeassistant_HassTurnOn.yaml
   - sentences:
       - "allume[r] {le_name}"
     domains:
@@ -409,7 +369,6 @@ data:
       - "input_boolean"
 
   # Turning on things per name and area (Generic)
-  # Full sentences in the intents library: sentences/fr/homeassistant_HassTurnOn.yaml
   - sentences:
       - "allume[r] {le_name} dans {le_area}"
       - "allume[r] {le_name} {de_le_area}"
@@ -421,7 +380,6 @@ data:
       - "input_boolean"
 
   # Turning off things per name (Generic)
-  # Full sentences in the intents library: sentences/fr/homeassistant_HassTurnOff.yaml
   - sentences:
       - "(éteins|éteindre) {le_name}"
     domains:
@@ -432,7 +390,6 @@ data:
       - "input_boolean"
 
   # Turning off things per name and area (Generic)
-  # Full sentences in the intents library: sentences/fr/homeassistant_HassTurnOff.yaml
   - sentences:
       - "(éteins|éteindre) {le_name} dans {le_area}"
       - "(éteins|éteindre) {le_name} {de_le_area}"
@@ -444,7 +401,6 @@ data:
       - "input_boolean"
 
   # Running scripts
-  # Full sentences in the intents library: sentences/fr/script_HassTurnOn.yaml
   - sentences:
       - "active[r] [le script] {le_name}"
       - "lance[r] [le script] {le_name}"
@@ -452,7 +408,6 @@ data:
       - "script"
 
   # Running scenes
-  # Full sentences in the intents library: sentences/fr/scene_HassTurnOn.yaml
   - sentences:
       - "active[r] [la scène] {le_name}"
       - "lance[r] [la scène] {le_name}"
@@ -460,7 +415,6 @@ data:
       - "scene"
 
   # Pausing Media players per name
-  # Full sentences in the intents library: sentences/fr/media_player_HassMediaPause.yaml
   - sentences:
       - "(mets|mettre) {le_name} (en|sur) pause"
     domains:
@@ -468,55 +422,45 @@ data:
     media_player_supports_pause: true
 
   # Pausing Media players (context awarness)
-  # Full sentences in the intents library: sentences/fr/media_player_HassMediaPause.yaml
   - "pause"
   - "arrête[r] {le_media_type}"
 
   # Pausing Media players per area
-  # Full sentences in the intents library: sentences/fr/media_player_HassMediaPause.yaml
   - "arrête[r] {le_media_type} dans {le_area}"
   - "arrête[r] {le_media_type} {de_le_area}"
 
   # Resuming Media players per name
-  # Full sentences in the intents library: sentences/fr/media_player_HassMediaUnpause.yaml
   - sentences:
       - "(reprends|reprendre) la lecture sur {le_name}"
     domains:
       - "media_player"
 
   # Resuming Media players (context awarness)
-  # Full sentences in the intents library: sentences/fr/media_player_HassMediaUnpause.yaml
   - "lecture"
   - "(reprends|reprendre) {le_media_type}"
 
   # Resuming Media players per area
-  # Full sentences in the intents library: sentences/fr/media_player_HassMediaUnpause.yaml
   - "(reprends|reprendre) {le_media_type} dans {le_area}"
   - "(reprends|reprendre) {le_media_type} {de_le_area}"
 
   # Going to the next media on a media player (context awarness)
-  # Full sentences in the intents library: sentences/fr/media_player_HassMediaNext.yaml
   - "suivant[e]"
   - "{next_media_type}"
 
   # Going to the previous media on a media player (context awarness)
-  # Full sentences in the intents library: sentences/fr/media_player_HassMediaPrevious.yaml
   - "précédent[e]"
   - "{previous_media_type}"
 
   # Fetching temperature (context awarness)
-  # Full sentences in the intents library: sentences/fr/climate_HassClimateGetTemperature.yaml
   - "quelle est la température"
   - "combien fait-il"
 
   # Fetching temperature per area
-  # Full sentences in the intents library: sentences/fr/climate_HassClimateGetTemperature.yaml
   # - "quelle est la température {de_le_area}"
   - "quelle est la température dans {le_area}"
   - "combien fait-il dans {le_area}"
 
   # Fetching sensor value
-  # Full sentences in the intents library: sentences/fr/homeassistant_HassGetState.yaml
   - sentences:
       - "quel est {le_name}"
       # - "quel est (l'état|le statut|la valeur) {de_le_name}"
@@ -524,7 +468,6 @@ data:
       - "sensor"
 
   # Setting Timers
-  # Full sentences in the intents library: sentences/fr/homeassistant_HassStartTimer.yaml
   - "minuteur {seconds} secondes"
   - "minuteur 1 minute"
   - "minuteur {minutes} minutes"
@@ -541,23 +484,18 @@ data:
   - "minuteur {hours} heures et {minutes} minutes"
 
   # Cancel Timers
-  # Full sentences in the intents library: sentences/fr/homeassistant_HassCancelTimer.yaml
   - "supprime[r] (le|mon) minuteur"
 
   # Cancel all Timers
-  # Full sentences in the intents library: sentences/fr/homeassistant_HassCancelAllTimers.yaml
   - "supprime[r] tous les minuteurs"
 
   # Pausing Timers
-  # Full sentences in the intents library: sentences/fr/homeassistant_HassPauseTimer.yaml
   - "(mets|mettre) (le|mon) minuteur (en|sur) pause"
   - "(mets|mettre) (en|sur) pause (le|mon) minuteur"
 
   # Resuming Timers
-  # Full sentences in the intents library: sentences/fr/homeassistant_HassUnpauseTimer.yaml
   - "(reprends|reprendre) (le|mon) minuteur"
 
   # Timer status
-  # Full sentences in the intents library: sentences/fr/homeassistant_HassTimerStatus.yaml
   - "combien de temps reste-t-il"
   - "combien de temps reste-t-il (sur|dans) (le|mon) minuteur"
