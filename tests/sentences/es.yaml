@@ -35,8 +35,8 @@ sentences:
   - "cierra con llave Puerta Principal"
   - "cerrá con llave Puerta Principal"
   - "abre Puerta Principal"
-  - "está cerrada con llave la Puerta Principal"
-  - "está abierta la Puerta Principal"
+  - "está la Puerta Principal cerrada con llave"
+  - "está la Puerta Principal abierta"
 
   # generic on/off
   - "enciende Interruptor dormitorio"

@@ -46,8 +46,8 @@ data:
   - "set [the] {area} brightness to {brightness} percent"
   - "set [the] lights [in here] to {color}"
   - "set [the] color of [the] lights [in here] to {color}"
-  - "set [the] {area} lights to {color}"
-  - "set [the] color of [the] {area} lights to {color}"
+  - "set [the] {area} color to {color}"
+  - "set [the] color of [the] lights in [the] {area} to {color}"
   - "set lights in [the] {area} to {color}"
 
   # lights (name)

@@ -17,8 +17,8 @@ language: "mn"
 
 data:
   # cancel
-  - "зүгээр"
-  - "хамаагүй"
+  - "болих"
+  - "цуцлах"
 
   # # date and time
   # - "(what's|what is) the [current] time"

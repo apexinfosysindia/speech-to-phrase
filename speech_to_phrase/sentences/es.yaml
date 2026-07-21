@@ -100,8 +100,8 @@ data:
   - sentences:
       - "(cierra|cerrá) con llave <name>"
       - "abre <name>"
-      - "está cerrad(a|o) con llave <name>"
-      - "está abiert(a|o) <name>"
+      - "está <name> cerrad(a|o) con llave"
+      - "está <name> abiert(a|o)"
     domains:
       - "lock"
 

@@ -30,8 +30,8 @@ sentences:
   - "set Kitchen brightness to 100 percent"
   - "set lights to red"
   - "set color of lights to green"
-  - "set color of the Kitchen lights to blue"
-  - "set Kitchen lights to white"
+  - "set the color of the lights in the Kitchen to blue"
+  - "set Kitchen color to white"
   - "set lights in the Kitchen to yellow"
 
   # lights (name)
