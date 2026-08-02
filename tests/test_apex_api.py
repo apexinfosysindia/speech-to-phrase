@@ -747,31 +747,3 @@ async def test_automation_script_answers() -> None:
         assert set(apex_info.things.extra_sentences) == {"answer 1", "answer 2"}
 
 
-@pytest.mark.asyncio
-async def test_expose_entity_list_legacy_fallback() -> None:
-    """Test fallback to the legacy exposed-entities wire type."""
-    mock_websocket = MockWebsocket(
-        [
-            (None, {"type": "auth_required"}),
-            ("auth", {"type": "auth_ok"}),
-            ("get_config", {"result": {"language": "en"}}),
-            ("assist_pipeline/pipeline/list", {"result": {"pipelines": []}}),
-            # Core does not know the new wire type
-            ("apexos/expose_entity/list", {"success": False}),
-            # Legacy wire type succeeds
-            (
-                "homeassistant/expose_entity/list",
-                {"result": {"exposed_entities": {}}},
-            ),
-            ("get_states", {"result": []}),
-            ("config/floor_registry/list", {"result": []}),
-            ("config/area_registry/list", {"result": []}),
-            ("config/entity_registry/get_entries", {"result": {}}),
-            ("conversation/sentences/list", {"result": {"trigger_sentences": []}}),
-        ]
-    )
-
-    with patch("aiohttp.ClientSession", return_value=_make_session(mock_websocket)):
-        apex_info = await get_apex_info("<token>", "<url>")
-        assert apex_info.system_language == "en"
-        assert not apex_info.things.entities

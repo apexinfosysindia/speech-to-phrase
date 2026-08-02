@@ -284,19 +284,11 @@ async def get_apex_info(token: str, uri: str) -> ApexOSInfo:
                     pipeline_languages.add(stt_language)
 
             # Get exposed entities.
-            # ApexOS wire type first; fall back to the legacy wire type when
-            # talking to an upstream-branded core.
             await websocket.send_json(
                 {"id": next_id(), "type": "apexos/expose_entity/list"}
             )
 
             msg = await websocket.receive_json()
-            if not msg["success"]:
-                await websocket.send_json(
-                    {"id": next_id(), "type": "homeassistant/expose_entity/list"}
-                )
-                msg = await websocket.receive_json()
-
             assert msg["success"], msg
 
             entity_ids = []
