@@ -10,7 +10,7 @@ jobs:
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
-        os: [[self-hosted, apexos-builder]]
+        os: [[self-hosted, apexos-builder, linux, X64]]
 
     steps:
       - uses: actions/checkout@v4
