@@ -8,6 +8,9 @@ jobs:
   test:
     name: Test
     runs-on: ${{ fromJSON(vars.APEXOS_RUNSON_AMD64 || '["self-hosted","apexos-builder","linux","X64"]') }}
+    env:
+      # apexil / apexos-intents are published on the org wheelhouse, not PyPI
+      PIP_EXTRA_INDEX_URL: https://wheels.apexinfosys.in/simple/
 
     steps:
       - uses: actions/checkout@v4
