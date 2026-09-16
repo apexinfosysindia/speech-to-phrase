@@ -1,6 +1,7 @@
 import io
 import re
 import shlex
+import shutil
 import tempfile
 from pathlib import Path
 
@@ -328,6 +329,10 @@ def test_permutations() -> None:
 
 
 @pytest.mark.asyncio
+@pytest.mark.skipif(
+    shutil.which("ngrammake") is None,
+    reason="needs the OpenGRM n-gram tools, which Ubuntu does not package; the image build carries them",
+)
 async def test_list_value_probabilities() -> None:
     """Test that normalizing intent level probabilities boost the probabilities
     of intents with fewer sentences."""
