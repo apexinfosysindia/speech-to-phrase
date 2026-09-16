@@ -5,12 +5,9 @@ on:
   workflow_dispatch:
 
 jobs:
-  build_wheels:
-    name: Test on ${{ matrix.os }}
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [${{ fromJSON(vars.APEXOS_RUNSON_AMD64 || '["self-hosted","apexos-builder","linux","X64"]') }}]
+  test:
+    name: Test
+    runs-on: ${{ fromJSON(vars.APEXOS_RUNSON_AMD64 || '["self-hosted","apexos-builder","linux","X64"]') }}
 
     steps:
       - uses: actions/checkout@v4
