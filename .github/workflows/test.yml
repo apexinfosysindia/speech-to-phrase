@@ -17,12 +17,12 @@ jobs:
 
       - uses: actions/setup-python@v5
 
-      - name: Provide OpenFST tools (fstcompile) on the builder
+      - name: Provide OpenFST + OpenGRM tools on the builder
         run: |
-          if ! command -v fstcompile >/dev/null; then
-            sudo apt-get update -qq && sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -qq --no-install-recommends libfst-tools
+          if ! command -v fstcompile >/dev/null || ! command -v ngrammake >/dev/null; then
+            sudo apt-get update -qq && sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -qq --no-install-recommends libfst-tools libngram-tools
           fi
-          fstcompile --version | head -1
+          fstcompile --version | head -1; command -v ngramcount ngrammake
 
       - name: Install dependencies
         run: script/setup --dev
